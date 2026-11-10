@@ -4,8 +4,8 @@
  "seed": 20261016,
  "note": "D95 descriptive supplement; same resampling matrix as p2_analysis",
  "excluded": {
-  "medgemma-1.5-4b": "pilot format failure (D76)",
-  "qwen3-235b-a22b": "bf16 needed more GPUs than were available within the schedule; partial outputs not analyzed (D95)"
+  "medgemma-1.5-4b": "pilot format failure",
+  "qwen3-235b-a22b": "bf16 needed more GPUs than were available within the schedule; partial outputs not analyzed"
  },
  "pairs": {
   "meerkat2-14b_vs_qwen3-14b": {

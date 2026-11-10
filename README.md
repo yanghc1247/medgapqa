@@ -6,7 +6,7 @@ MedGapQA (Medical information-Gap QA) has 736 MedQA questions. In each, an LLM a
 
 Benchmark items, code, prompts, labels and aggregated results are released here; trajectories are not, because they contain StatPearls passages (CC BY-NC-ND). The items (`data/medgapqa.jsonl`) are derived from MedQA (Jin et al., 2021), released under the MIT License; the MedQA copyright and permission notice is in `data/LICENSE_MedQA`. Our code, edits and labels are released under the repository `LICENSE` (MIT).
 
-The supplementary material (`supplement.pdf`) is provided in this repository only; it is not uploaded to the submission system (EasyChair) with the paper.
+Supplementary material for the paper (`supplement.pdf`).
 
 ## Results in brief
 
@@ -52,14 +52,15 @@ All evaluated models run in Instant mode (thinking off), greedy decoding. Main-p
 | `scripts/p2/run_eval.py` | Runs every cell for one model (items written by `scripts/make_items.py`) |
 | `scripts/p2/p2_*.py` | Analysis scripts that write the JSON files in `results/` |
 | `scripts/` (other) | Modules that `run_eval.py` imports: hash checks (`p2/run_pilot.py`), the C0 S2 cell (`run_devk2_explore.py`), oracle prompts (`consol_requery.py`, `d56/prompts_d56.py`) and the noticing-probe prompt (`d58/prompts_d58.py`) |
-| `configs/`, `metadata/` | Agent configuration, reference hashes for model-instance checks, function-word list |
+| `configs/agent.json` | Agent configuration |
+| `metadata/instance_ref_hashes.json` | Reference output hashes for the model-instance check of MedGemma-4B and of the models of an earlier run |
 | `prompts/` | Frozen manifests of the two improvement policies and `registered_prompts.md` (every registered prompt text with its sha256) |
 | `data/` | `medgapqa.jsonl` (the 736 benchmark items with their labels), `README.md` (fields), `LICENSE_MedQA` (MedQA license notice) |
 | `results/` | Aggregate results used in the paper (`p2_analysis.json` and the exploratory analyses) |
 | `supplement.pdf` | Supplementary material |
 | `tests/test_smoke.py` | CPU smoke test: compile, prompt hashes, hash guards |
 
-Some module names reflect the project's development history; the files listed under scripts/ and src/ are the ones used for the reported runs.
+Some module names reflect the project's development history; the files listed under scripts/ and src/ are the ones used for the reported runs. Some modules also contain entry points from earlier runs that need files not released here (for example the report command of c4_ref_k.py); only the commands under Running and Reproducing are supported. D-numbers in code comments and result metadata refer to entries of the internal decision log, which is not released.
 
 Internal names in the code map to the paper as follows: S1K, S2K = S1, S2; C0 = answer only; C4 = free agent; C4f = forced inquiry; P6 = targeted ask pipeline; O2 = both removed facts handed over; O1a, O1b = one fact handed over; NP = noticing probe.
 
@@ -85,7 +86,7 @@ cp prompts/FROZEN_C4F_v3.json runs/v5/d36/ && cp prompts/FROZEN_P6_v1.json runs/
 CUDA_VISIBLE_DEVICES=1 python scripts/p2/run_eval.py --model qwen3-14b --sim-ports 8714
 ```
 
-`run_eval.py` checks the sha256 of the registered code and prompts, the simulator `/health`, and a reference output hash of each model instance before every cell, and refuses to overwrite existing output. The BM25 index over StatPearls is rebuilt from the NCBI archive with `src/medgapqa/statpearls_chunk.py` and `src/medgapqa/build_index.py`; the corpus and index are not redistributed.
+`run_eval.py` checks the sha256 of the registered code and prompts, the simulator `/health`, and a reference output hash of each model instance before every cell, and refuses to overwrite existing output. `run_eval.py` runs the models in `SPECS` of `src/medgapqa/p2_models.py`; for these the instance reference is written to `runs/p2/refs_r4/` on the first run and compared on later runs. MedGemma-4B is not in `SPECS`: its reported outputs come from an earlier run of the same frozen pipeline, and rerunning it through the original instance check (`EvalModel.verify` in `src/medgapqa/pipeline_k.py`) uses its reference in `metadata/instance_ref_hashes.json`, which also holds the references of the earlier models read by the standalone entry points of `run_agent.py`, `forced_answer.py`, `abstain_probe.py` and `scripts/consol_requery.py`. The BM25 index over StatPearls is rebuilt from the NCBI archive with `src/medgapqa/statpearls_chunk.py` and `src/medgapqa/build_index.py`; the corpus and index are not redistributed.
 
 ## Reproducing the results
 

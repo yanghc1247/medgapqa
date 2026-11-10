@@ -1,7 +1,7 @@
 {
  "meta": {
   "analysis": "D90 between-model rank correlation",
-  "status": "post hoc, exploratory; model-level n = 10 (8); no multiplicity correction; added after seeing Table 3 and Table 4; possibly confounded by model strength (stronger models may both receive more facts and gain more)",
+  "status": "post hoc, exploratory; model-level n = 11 (main pool 9); no multiplicity correction; added after seeing the main results; possibly confounded by model strength (stronger models may both receive more facts and gain more)",
   "statistic": "Spearman rank correlation across models (average ranks for ties) of per-model item means",
   "quantities": {
    "recv_ge1_<P>": "share of items with >= 1 removed fact received, policy P, state S1 (S1K asks)",
@@ -15,15 +15,15 @@
    "C4f_recv_ge1_vs_delta_C4f_S1": "(d) reference: Forced inquiry receipt vs Forced inquiry delta"
   },
   "groups": {
-   "all": "main pool + large (primary, n = 10)",
-   "main": "(a) main pool only, large excluded (n = 8)",
+   "all": "main pool + large (primary, n = 11)",
+   "main": "(a) main pool only, large excluded (n = 9)",
    "all_excluding_reused": "(b) reused model excluded from all",
    "main_excluding_reused": "(b) reused model excluded from main pool"
   },
   "bootstrap": "shared resampling matrix of p2_analysis.Boot (B 10000, seed 20261016, 736 items); per resample, per-model means and Spearman recomputed; replicates where either rank vector is constant are dropped and counted; 95% percentile",
   "p2_analysis_py_sha256": "98e4f639d709c70178c86911e05fcb2d40a62197909e79dd014ce27d0eadfbfc",
   "p2_strata_py_sha256": "ec432eceb94ce0f9e7399026e7dc90b9b91ca95ada7363dc36eaec09f6393422",
-  "script_sha256": "8624ec877f2ba5c8ccfa51546c80517f301312e87eb7f3ab4a5f619a9b80a61b",
+  "script_sha256": "06c15bed23596991a23d96bd3ea4b71c2615701677cac89b28d349d84c1e1ecf",
   "items_sha256": "2da8bef3ed4176ce86f6734bd65877d8e6da884034b9b40c97d149a0a77191bd"
  },
  "n_items": 736,
@@ -49,8 +49,8 @@
  ],
  "main_mean_missing": [],
  "excluded": {
-  "medgemma-1.5-4b": "pilot format failure (D76)",
-  "qwen3-235b-a22b": "bf16 needed more GPUs than were available within the schedule; partial outputs not analyzed (D95)"
+  "medgemma-1.5-4b": "pilot format failure",
+  "qwen3-235b-a22b": "bf16 needed more GPUs than were available within the schedule; partial outputs not analyzed"
  },
  "groups": {
   "all": [

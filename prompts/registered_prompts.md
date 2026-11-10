@@ -1,7 +1,7 @@
 # Registered prompts
 
 Texts as built by the release code (`src/medgapqa/`, `scripts/d56/prompts_d56.py`, `scripts/d58/prompts_d58.py`) with `configs/agent.json`.
-Each sha256 is identical to the one computed from the original code; the registered values are checked in `tests/test_smoke.py`.
+Each sha256 is identical to the one computed from the original code. `tests/test_smoke.py` checks four of them against their registered values: the simulator prompt, the forced inquiry system prompt (C4f v3), the targeted ask question-generation prompt (P6 v1) and the base question-generation prompt (P1b, Q3 schema).
 
 Frozen manifests: `FROZEN_C4F_v3.json` (forced inquiry) and `FROZEN_P6_v1.json` (targeted ask pipeline). The run wrappers read them from `runs/v5/d36/` and `runs/v5/d37/`; copy them there before running (see README).
 
@@ -10,16 +10,13 @@ Frozen manifests: `FROZEN_C4F_v3.json` (forced inquiry) and `FROZEN_P6_v1.json` 
 | answer-only baseline system prompt (C0) | `0e8748db83d213cc510d49c7ca7974c8dbc541a7a8b6b8c6d1067782c3282803` |
 | free agent system prompt (C4) | `a654cad0f8f072aec04873556f0bf8c0f8314d9ff57792510b45fd25be42378d` |
 | forced inquiry system prompt (C4f v3) | `0f22a2adde60fd08e6c9502cbdb80f9dbf3b6f422a463db2d462df689e915745` |
-| question generation, ask pipelines (P1a/P1b, Q3) | `b4f744d15c6f410c19523eabd563431e58f56b12be373d2b9edb23404a7b7001` |
+| question generation, base prompt (P1b, Q3 schema; the targeted ask pipeline P6 v1 appends its suffix to this prompt) | `b4f744d15c6f410c19523eabd563431e58f56b12be373d2b9edb23404a7b7001` |
 | question generation, targeted ask pipeline (P6 v1) | `eb313fa1da6383f8f4af7a936e3e1992c0f833df2a014c831fc06c9314c5da0d` |
 | simulator (v10, system + prompt + prefill) | `68f99cd48cf56d7f2533404e1f913a7ee82d7a23025eb41d392c68bd3445e002` |
 | oracle prefix (handing over the facts) | `d42a8b777cce6bdc2a4a4d3bea5d3f51d85a6bc8bb2fed71f20f5d10061e8dfe` |
-| neutral guidance sentence (C4n) | `6e0c8a379d49769f25afe30954872dc7ffe053d1450ffea77ea146e6300858c4` |
 | blind asker prompt | `28aae24b2c92f22a37cc5a352cef4ed355f53f64a2d8516e82f4ba10875a315c` |
 | information-sufficiency probe question | `1f9431e06753326cda524193b724ec5c2f7f0de4c78fdf24f9140d451e0b15c8` |
 | question/query generation schema Q3 | `b4f744d15c6f410c19523eabd563431e58f56b12be373d2b9edb23404a7b7001` |
-| question/query generation schema S2 | `857a5f676ab17cb0837c624954ff6ad0afe4b002eb56226c388d7d3d0d6acc27` |
-| question/query generation schema Q3S2 | `133d5db3a1bd6af56a48598f4e814bba328b8f289eac5f7a8457ae59e8562d8d` |
 
 ## answer-only baseline system prompt (C0)
 
@@ -78,7 +75,7 @@ Examples of valid actions:
 {"action": "ABSTAIN", "content": "<one brief reason>"}
 ```
 
-## question generation, ask pipelines (P1a/P1b, Q3)
+## question generation, base prompt (P1b, Q3 schema; the targeted ask pipeline P6 v1 appends its suffix to this prompt)
 
 ```text
 You are a clinical decision agent working on a multiple-choice medical question. Some patient information may be missing from the question. Before answering, you must ask 3 short, specific questions about this patient, each about one clinical finding, test result, history element, or category, and/or write 0 search queries for a general medical knowledge base. Do not repeat information already stated in the question. Output exactly one JSON object and nothing else: {"questions": ["<question 1>", "<question 2>", "<question 3>"]}
@@ -128,12 +125,6 @@ Output exactly one JSON object and nothing else, with the rationale written befo
 Additional information from the patient: 
 ```
 
-## neutral guidance sentence (C4n)
-
-```text
-Decide whether the case contains enough information to answer. If something you need is missing, you may ask the patient or search; otherwise you may answer.
-```
-
 ## blind asker prompt
 
 ```text
@@ -150,16 +141,4 @@ Is the information in this case sufficient to answer the question? Answer Yes or
 
 ```text
 You are a clinical decision agent working on a multiple-choice medical question. Some patient information may be missing from the question. Before answering, you must ask 3 short, specific questions about this patient, each about one clinical finding, test result, history element, or category, and/or write 0 search queries for a general medical knowledge base. Do not repeat information already stated in the question. Output exactly one JSON object and nothing else: {"questions": ["<question 1>", "<question 2>", "<question 3>"]}
-```
-
-## question/query generation schema S2
-
-```text
-You are a clinical decision agent working on a multiple-choice medical question. Some patient information may be missing from the question. Before answering, you must ask 0 short, specific questions about this patient, each about one clinical finding, test result, history element, or category, and/or write 2 search queries for a general medical knowledge base. Do not repeat information already stated in the question. Output exactly one JSON object and nothing else: {"queries": ["<query 1>", "<query 2>"]}
-```
-
-## question/query generation schema Q3S2
-
-```text
-You are a clinical decision agent working on a multiple-choice medical question. Some patient information may be missing from the question. Before answering, you must ask 3 short, specific questions about this patient, each about one clinical finding, test result, history element, or category, and/or write 2 search queries for a general medical knowledge base. Do not repeat information already stated in the question. Output exactly one JSON object and nothing else: {"questions": ["<question 1>", "<question 2>", "<question 3>"], "queries": ["<query 1>", "<query 2>"]}
 ```

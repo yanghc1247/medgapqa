@@ -20,14 +20,14 @@ PAIRS = {"P6_recv_ge1_vs_delta_P6_S1": ("recv_ge1_P6", "delta_P6_S1"),  # main a
          "P6_recv_ge1_vs_s1_minus_s2_P6": ("recv_ge1_P6", "s1_minus_s2_P6"),  # (c)
          "C4f_recv_ge1_vs_s1_minus_s2_C4f": ("recv_ge1_C4f", "s1_minus_s2_C4f"),  # (d)
          "C4f_recv_ge1_vs_delta_C4f_S1": ("recv_ge1_C4f", "delta_C4f_S1")}  # (d) for reference
-META = {"analysis": "D90 between-model rank correlation", "status": "post hoc, exploratory; model-level n = 10 (8); no multiplicity correction; added after seeing Table 3 and Table 4; "
+META = {"analysis": "D90 between-model rank correlation", "status": "post hoc, exploratory; model-level n = 11 (main pool 9); no multiplicity correction; added after seeing the main results; "
         "possibly confounded by model strength (stronger models may both receive more facts and gain more)",
         "statistic": "Spearman rank correlation across models (average ranks for ties) of per-model item means",
         "quantities": {"recv_ge1_<P>": "share of items with >= 1 removed fact received, policy P, state S1 (S1K asks)", "delta_<P>_S1": "policy S1 - C0 S1",
                        "s1_minus_s2_<P>": "policy S1 - policy S2"},
         "pairs": {"P6_recv_ge1_vs_delta_P6_S1": "primary", "P6_recv_ge1_vs_s1_minus_s2_P6": "(c) S1 - S2 instead of delta",
                   "C4f_recv_ge1_vs_s1_minus_s2_C4f": "(d) Forced inquiry receipt vs Forced inquiry S1 - S2", "C4f_recv_ge1_vs_delta_C4f_S1": "(d) reference: Forced inquiry receipt vs Forced inquiry delta"},
-        "groups": {"all": "main pool + large (primary, n = 10)", "main": "(a) main pool only, large excluded (n = 8)", "all_excluding_reused": "(b) reused model excluded from all",
+        "groups": {"all": "main pool + large (primary, n = 11)", "main": "(a) main pool only, large excluded (n = 9)", "all_excluding_reused": "(b) reused model excluded from all",
                    "main_excluding_reused": "(b) reused model excluded from main pool"},
         "bootstrap": "shared resampling matrix of p2_analysis.Boot (B 10000, seed 20261016, 736 items); per resample, per-model means and Spearman recomputed; "
                      "replicates where either rank vector is constant are dropped and counted; 95% percentile"}
