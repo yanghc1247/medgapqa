@@ -1,0 +1,1 @@
+`encoding_dsv4.py` is copied unchanged from `encoding/encoding_dsv4.py` of the model repository `deepseek-ai/DeepSeek-V4-Flash-0731` at the revision pinned in `src/medgapqa/p2_models.py`; it is used only to render DeepSeek-V4-Flash prompts. Its license is that of the model repository.

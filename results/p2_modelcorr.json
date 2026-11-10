@@ -1,0 +1,927 @@
+{
+ "meta": {
+  "analysis": "D90 between-model rank correlation",
+  "status": "post hoc, exploratory; model-level n = 10 (8); no multiplicity correction; added after seeing Table 3 and Table 4; possibly confounded by model strength (stronger models may both receive more facts and gain more)",
+  "statistic": "Spearman rank correlation across models (average ranks for ties) of per-model item means",
+  "quantities": {
+   "recv_ge1_<P>": "share of items with >= 1 removed fact received, policy P, state S1 (S1K asks)",
+   "delta_<P>_S1": "policy S1 - C0 S1",
+   "s1_minus_s2_<P>": "policy S1 - policy S2"
+  },
+  "pairs": {
+   "P6_recv_ge1_vs_delta_P6_S1": "primary",
+   "P6_recv_ge1_vs_s1_minus_s2_P6": "(c) S1 - S2 instead of delta",
+   "C4f_recv_ge1_vs_s1_minus_s2_C4f": "(d) Forced inquiry receipt vs Forced inquiry S1 - S2",
+   "C4f_recv_ge1_vs_delta_C4f_S1": "(d) reference: Forced inquiry receipt vs Forced inquiry delta"
+  },
+  "groups": {
+   "all": "main pool + large (primary, n = 10)",
+   "main": "(a) main pool only, large excluded (n = 8)",
+   "all_excluding_reused": "(b) reused model excluded from all",
+   "main_excluding_reused": "(b) reused model excluded from main pool"
+  },
+  "bootstrap": "shared resampling matrix of p2_analysis.Boot (B 10000, seed 20261016, 736 items); per resample, per-model means and Spearman recomputed; replicates where either rank vector is constant are dropped and counted; 95% percentile",
+  "p2_analysis_py_sha256": "98e4f639d709c70178c86911e05fcb2d40a62197909e79dd014ce27d0eadfbfc",
+  "p2_strata_py_sha256": "ec432eceb94ce0f9e7399026e7dc90b9b91ca95ada7363dc36eaec09f6393422",
+  "script_sha256": "8624ec877f2ba5c8ccfa51546c80517f301312e87eb7f3ab4a5f619a9b80a61b",
+  "items_sha256": "2da8bef3ed4176ce86f6734bd65877d8e6da884034b9b40c97d149a0a77191bd"
+ },
+ "n_items": 736,
+ "B": 10000,
+ "seed": 20261016,
+ "main_pool": [
+  "qwen3-8b",
+  "qwen3-14b",
+  "meerkat2-14b",
+  "medgemma-4b",
+  "qwen3-30b-a3b",
+  "meerkat2-30b-a3b",
+  "qwen3-32b",
+  "medgemma-27b",
+  "meerkat2-32b"
+ ],
+ "large": [
+  "meerkat-70b-nf4",
+  "dsv4-0731"
+ ],
+ "reused_models": [
+  "medgemma-4b"
+ ],
+ "main_mean_missing": [],
+ "excluded": {
+  "medgemma-1.5-4b": "pilot format failure (D76)",
+  "qwen3-235b-a22b": "bf16 needed more GPUs than were available within the schedule; partial outputs not analyzed (D95)"
+ },
+ "groups": {
+  "all": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "medgemma-4b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "medgemma-27b",
+   "meerkat2-32b",
+   "meerkat-70b-nf4",
+   "dsv4-0731"
+  ],
+  "main": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "medgemma-4b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "medgemma-27b",
+   "meerkat2-32b"
+  ],
+  "all_excluding_reused": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "medgemma-27b",
+   "meerkat2-32b",
+   "meerkat-70b-nf4",
+   "dsv4-0731"
+  ],
+  "main_excluding_reused": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "medgemma-27b",
+   "meerkat2-32b"
+  ]
+ },
+ "per_model": {
+  "qwen3-8b": {
+   "delta_C4f_S1": {
+    "value": 0.02717391304347826,
+    "ci95": [
+     -0.001358695652173913,
+     0.05570652173913043
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.021739130434782608,
+    "ci95": [
+     0.0,
+     0.043478260869565216
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.15489130434782608,
+    "ci95": [
+     0.13043478260869565,
+     0.18070652173913043
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.4375,
+    "ci95": [
+     0.4008152173913043,
+     0.47282608695652173
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.024456521739130436,
+    "ci95": [
+     0.012228260869565218,
+     0.03804347826086957
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.042119565217391304,
+    "ci95": [
+     0.025815217391304348,
+     0.059782608695652176
+    ]
+   }
+  },
+  "qwen3-14b": {
+   "delta_C4f_S1": {
+    "value": 0.03940217391304348,
+    "ci95": [
+     0.009510869565217392,
+     0.06929347826086957
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.03804347826086957,
+    "ci95": [
+     0.014945652173913044,
+     0.06114130434782609
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.24864130434782608,
+    "ci95": [
+     0.21739130434782608,
+     0.2798913043478261
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.48233695652173914,
+    "ci95": [
+     0.44565217391304346,
+     0.5190217391304348
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.04619565217391304,
+    "ci95": [
+     0.029891304347826088,
+     0.0625
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.050271739130434784,
+    "ci95": [
+     0.03125,
+     0.06929347826086957
+    ]
+   }
+  },
+  "meerkat2-14b": {
+   "delta_C4f_S1": {
+    "value": -0.019021739130434784,
+    "ci95": [
+     -0.04891304347826087,
+     0.010869565217391304
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.033967391304347824,
+    "ci95": [
+     0.01358695652173913,
+     0.05434782608695652
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.09918478260869565,
+    "ci95": [
+     0.07880434782608696,
+     0.12092391304347826
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.5407608695652174,
+    "ci95": [
+     0.5054008152173917,
+     0.5760869565217391
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.016304347826086956,
+    "ci95": [
+     0.006793478260869565,
+     0.02717391304347826
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.043478260869565216,
+    "ci95": [
+     0.02717391304347826,
+     0.06114130434782609
+    ]
+   }
+  },
+  "medgemma-4b": {
+   "delta_C4f_S1": {
+    "value": 0.008152173913043478,
+    "ci95": [
+     -0.020380434782608696,
+     0.036684782608695655
+    ]
+   },
+   "delta_P6_S1": {
+    "value": -0.001358695652173913,
+    "ci95": [
+     -0.019021739130434784,
+     0.016304347826086956
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.11277173913043478,
+    "ci95": [
+     0.09103260869565218,
+     0.13722826086956522
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.28125,
+    "ci95": [
+     0.24864130434782608,
+     0.3138586956521739
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.008152173913043478,
+    "ci95": [
+     0.0,
+     0.017663043478260868
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.002717391304347826,
+    "ci95": [
+     0.0,
+     0.006793478260869565
+    ]
+   }
+  },
+  "qwen3-30b-a3b": {
+   "delta_C4f_S1": {
+    "value": 0.009510869565217392,
+    "ci95": [
+     -0.016304347826086956,
+     0.035326086956521736
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.036684782608695655,
+    "ci95": [
+     0.017663043478260868,
+     0.057065217391304345
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.13043478260869565,
+    "ci95": [
+     0.10597826086956522,
+     0.15489130434782608
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.5095108695652174,
+    "ci95": [
+     0.47282608695652173,
+     0.5461956521739131
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.028532608695652172,
+    "ci95": [
+     0.014945652173913044,
+     0.042119565217391304
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.04483695652173913,
+    "ci95": [
+     0.028532608695652172,
+     0.0625
+    ]
+   }
+  },
+  "meerkat2-30b-a3b": {
+   "delta_C4f_S1": {
+    "value": 0.021739130434782608,
+    "ci95": [
+     -0.004076086956521739,
+     0.04755434782608696
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.028532608695652172,
+    "ci95": [
+     0.008152173913043478,
+     0.04891304347826087
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.12771739130434784,
+    "ci95": [
+     0.10461956521739131,
+     0.15217391304347827
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.483695652173913,
+    "ci95": [
+     0.4483695652173913,
+     0.5190217391304348
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.019021739130434784,
+    "ci95": [
+     0.009510869565217392,
+     0.029891304347826088
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.03940217391304348,
+    "ci95": [
+     0.024456521739130436,
+     0.05570652173913043
+    ]
+   }
+  },
+  "qwen3-32b": {
+   "delta_C4f_S1": {
+    "value": 0.050271739130434784,
+    "ci95": [
+     0.024456521739130436,
+     0.07608695652173914
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.06657608695652174,
+    "ci95": [
+     0.04076086956521739,
+     0.09239130434782608
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.21603260869565216,
+    "ci95": [
+     0.1875,
+     0.24592391304347827
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.592391304347826,
+    "ci95": [
+     0.5557065217391305,
+     0.6277173913043478
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.042119565217391304,
+    "ci95": [
+     0.025815217391304348,
+     0.058423913043478264
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.07201086956521739,
+    "ci95": [
+     0.04891304347826087,
+     0.09510869565217392
+    ]
+   }
+  },
+  "medgemma-27b": {
+   "delta_C4f_S1": {
+    "value": 0.09782608695652174,
+    "ci95": [
+     0.06657608695652174,
+     0.13043478260869565
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.04483695652173913,
+    "ci95": [
+     0.017663043478260868,
+     0.07201086956521739
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.33967391304347827,
+    "ci95": [
+     0.30570652173913043,
+     0.375
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.5516304347826086,
+    "ci95": [
+     0.5149456521739131,
+     0.5883152173913043
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.0625,
+    "ci95": [
+     0.043478260869565216,
+     0.08152173913043478
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.051630434782608696,
+    "ci95": [
+     0.03125,
+     0.07336956521739131
+    ]
+   }
+  },
+  "meerkat2-32b": {
+   "delta_C4f_S1": {
+    "value": 0.008152173913043478,
+    "ci95": [
+     -0.016304347826086956,
+     0.03260869565217391
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.07065217391304347,
+    "ci95": [
+     0.04755434782608696,
+     0.09375
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.05298913043478261,
+    "ci95": [
+     0.03804347826086957,
+     0.06929347826086957
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.5543478260869565,
+    "ci95": [
+     0.5190217391304348,
+     0.5910326086956522
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.008152173913043478,
+    "ci95": [
+     0.002717391304347826,
+     0.014945652173913044
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.06929347826086957,
+    "ci95": [
+     0.04891304347826087,
+     0.08967391304347826
+    ]
+   }
+  },
+  "meerkat-70b-nf4": {
+   "delta_C4f_S1": {
+    "value": 0.06521739130434782,
+    "ci95": [
+     0.036684782608695655,
+     0.09375
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.05298913043478261,
+    "ci95": [
+     0.033967391304347824,
+     0.07336956521739131
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.35733695652173914,
+    "ci95": [
+     0.3220108695652174,
+     0.39266304347826086
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.501358695652174,
+    "ci95": [
+     0.4633152173913043,
+     0.5380434782608695
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.08423913043478261,
+    "ci95": [
+     0.06385869565217392,
+     0.10733695652173914
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.05570652173913043,
+    "ci95": [
+     0.03804347826086957,
+     0.07336956521739131
+    ]
+   }
+  },
+  "dsv4-0731": {
+   "delta_C4f_S1": {
+    "value": 0.07880434782608696,
+    "ci95": [
+     0.04483695652173913,
+     0.11277173913043478
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.11005434782608696,
+    "ci95": [
+     0.08152173913043478,
+     0.13858695652173914
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.029891304347826088,
+    "ci95": [
+     0.017663043478260868,
+     0.042119565217391304
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.6630434782608695,
+    "ci95": [
+     0.6290760869565217,
+     0.6970108695652174
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.009510869565217392,
+    "ci95": [
+     0.002717391304347826,
+     0.017663043478260868
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.11820652173913043,
+    "ci95": [
+     0.09375,
+     0.14402173913043478
+    ]
+   }
+  }
+ },
+ "correlations": {
+  "all": {
+   "P6_recv_ge1_vs_delta_P6_S1": {
+    "rho": 0.8545454545454545,
+    "ci95": [
+     0.5649217389969745,
+     0.9454545454545454
+    ],
+    "n_models": 11,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "medgemma-4b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b",
+     "meerkat-70b-nf4",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "P6_recv_ge1_vs_s1_minus_s2_P6": {
+    "rho": 0.8454545454545455,
+    "ci95": [
+     0.5,
+     0.9339431975353206
+    ],
+    "n_models": 11,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "medgemma-4b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b",
+     "meerkat-70b-nf4",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_s1_minus_s2_C4f": {
+    "rho": 0.9384990180111027,
+    "ci95": [
+     0.792712762786077,
+     0.9818181818181818
+    ],
+    "n_models": 11,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "medgemma-4b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b",
+     "meerkat-70b-nf4",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_delta_C4f_S1": {
+    "rho": 0.5375868161422821,
+    "ci95": [
+     0.2818181818181818,
+     0.6788172508915258
+    ],
+    "n_models": 11,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "medgemma-4b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b",
+     "meerkat-70b-nf4",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   }
+  },
+  "main": {
+   "P6_recv_ge1_vs_delta_P6_S1": {
+    "rho": 0.8666666666666667,
+    "ci95": [
+     0.47699162299076214,
+     0.9623515200690814
+    ],
+    "n_models": 9,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "medgemma-4b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "P6_recv_ge1_vs_s1_minus_s2_P6": {
+    "rho": 0.85,
+    "ci95": [
+     0.37657233394007533,
+     0.9412097036339401
+    ],
+    "n_models": 9,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "medgemma-4b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_s1_minus_s2_C4f": {
+    "rho": 0.9539832459815243,
+    "ci95": [
+     0.7166666666666667,
+     0.9833333333333333
+    ],
+    "n_models": 9,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "medgemma-4b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_delta_C4f_S1": {
+    "rho": 0.9372466978064098,
+    "ci95": [
+     0.5166666666666667,
+     0.9623515200690814
+    ],
+    "n_models": 9,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "medgemma-4b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   }
+  },
+  "all_excluding_reused": {
+   "P6_recv_ge1_vs_delta_P6_S1": {
+    "rho": 0.806060606060606,
+    "ci95": [
+     0.4255338805760452,
+     0.9272727272727272
+    ],
+    "n_models": 10,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b",
+     "meerkat-70b-nf4",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "P6_recv_ge1_vs_s1_minus_s2_P6": {
+    "rho": 0.793939393939394,
+    "ci95": [
+     0.3333333333333333,
+     0.9118583155200969
+    ],
+    "n_models": 10,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b",
+     "meerkat-70b-nf4",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_s1_minus_s2_C4f": {
+    "rho": 0.9757575757575757,
+    "ci95": [
+     0.8424242424242424,
+     0.9878787878787879
+    ],
+    "n_models": 10,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b",
+     "meerkat-70b-nf4",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_delta_C4f_S1": {
+    "rho": 0.503030303030303,
+    "ci95": [
+     0.2606060606060606,
+     0.6848484848484848
+    ],
+    "n_models": 10,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b",
+     "meerkat-70b-nf4",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   }
+  },
+  "main_excluding_reused": {
+   "P6_recv_ge1_vs_delta_P6_S1": {
+    "rho": 0.8095238095238095,
+    "ci95": [
+     0.2619047619047619,
+     0.9461247469114746
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "P6_recv_ge1_vs_s1_minus_s2_P6": {
+    "rho": 0.7857142857142857,
+    "ci95": [
+     0.10778636357219332,
+     0.9157291161525718
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_s1_minus_s2_C4f": {
+    "rho": 0.9761904761904762,
+    "ci95": [
+     0.7545045450053531,
+     1.0
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_delta_C4f_S1": {
+    "rho": 0.9285714285714286,
+    "ci95": [
+     0.5238095238095238,
+     0.9700772721497398
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "medgemma-27b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   }
+  }
+ }
+}

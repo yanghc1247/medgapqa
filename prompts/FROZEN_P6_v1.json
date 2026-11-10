@@ -1,0 +1,12 @@
+{
+ "selected_version": "v1",
+ "rule": "D37 selection criterion (4089a98)",
+ "files_sha256": {
+  "src/medgapqa/prompts_p6.py": "fb857e7bfd3565926698c2da642f08d42bb3026ffd964d31c57583e221725cbd"
+ },
+ "gen_prompt_sha256": "eb313fa1da6383f8f4af7a936e3e1992c0f833df2a014c831fc06c9314c5da0d",
+ "p1b_gen_prompt_sha256": "b4f744d15c6f410c19523eabd563431e58f56b12be373d2b9edb23404a7b7001",
+ "path": "pipeline_k.cmd_arms with SCHEMAS={Q3}, ARMS={P6: (Q3,3,0)}, GEN_SYSTEM + ' ' + SUFFIX",
+ "simulator": "C1 (D32d)",
+ "n_questions": 3
+}

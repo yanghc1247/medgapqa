@@ -1,0 +1,15 @@
+{
+ "selected_version": "v3",
+ "rule": "D36 selection criterion (2d8b1fa)",
+ "files_sha256": {
+  "src/medgapqa/agent_c4f_v3.py": "2d02939fa3039cb2716781cf8372022b5a61cbc14272f66a99bb8fe2794a03e0",
+  "src/medgapqa/agent_c4f.py": "fad15c5354a3e994b9a64c7be8c7611dfedde1589fe9e61a8cb732bb00ef4850",
+  "src/medgapqa/prompts_c4f.py": "769dcfcc537f8041d51c5cfa6e5c56b326c4e4abeecd163b9813c60e3c4088d2"
+ },
+ "system_prompt_sha256": "0f22a2adde60fd08e6c9502cbdb80f9dbf3b6f422a463db2d462df689e915745",
+ "force_tool_sentence": "At this step you can only choose ASK or SEARCH.",
+ "simulator": "C1 (D32d FROZEN_D32d.json)",
+ "forced_answer": "v5 pf A (c4_ref_k)",
+ "N_tool_turns": 4,
+ "T": 5
+}

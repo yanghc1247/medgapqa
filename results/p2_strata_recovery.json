@@ -1,0 +1,1611 @@
+{
+ "meta": {
+  "analysis": "D89 stratum recovery ratios",
+  "status": "post hoc, exploratory, no multiplicity correction; added after seeing the stratum differences in C0 cost (D88 tables)",
+  "labels": "D35e full necessity labels (736 items), LLM labels by Claude Sonnet 5.5 (not human), fixed before results; strata necessary / partially / not_necessary",
+  "sensitivity": "no_artifact = items with artifact_flag = 1 excluded",
+  "ratios": {
+   "recovery_<P>": "sum over stratum items of (policy S1 - C0 S1) / sum of (C0 S0 - C0 S1)",
+   "s1s2_over_cost_<P>": "sum over stratum items of (policy S1 - policy S2) / sum of (C0 S0 - C0 S1)"
+  },
+  "main_mean": "ratio of the model-mean item vectors over the 9-model main pool (mean delta / mean cost), not the mean of per-model ratios",
+  "bootstrap": "shared resampling matrix of p2_analysis.Boot (B 10000, seed 20261016, 736 items); per resample, ratio of stratum sums; replicates with denominator <= 0 dropped and counted; 95% percentile; unstable = denominator 95% CI includes 0",
+  "p2_analysis_py_sha256": "98e4f639d709c70178c86911e05fcb2d40a62197909e79dd014ce27d0eadfbfc",
+  "p2_strata_py_sha256": "ec432eceb94ce0f9e7399026e7dc90b9b91ca95ada7363dc36eaec09f6393422",
+  "script_sha256": "1c4c6b928dcbd094c58a4251a3e294a497fac1f93184a6041da63132f3e7faeb",
+  "items_sha256": "2da8bef3ed4176ce86f6734bd65877d8e6da884034b9b40c97d149a0a77191bd"
+ },
+ "n_items": 736,
+ "main_pool": [
+  "qwen3-8b",
+  "qwen3-14b",
+  "meerkat2-14b",
+  "medgemma-4b",
+  "qwen3-30b-a3b",
+  "meerkat2-30b-a3b",
+  "qwen3-32b",
+  "medgemma-27b",
+  "meerkat2-32b"
+ ],
+ "large": [
+  "meerkat-70b-nf4",
+  "dsv4-0731"
+ ],
+ "main_mean_missing": [],
+ "excluded": {
+  "medgemma-1.5-4b": "pilot format failure (D76)",
+  "qwen3-235b-a22b": "bf16 needed more GPUs than were available within the schedule; partial outputs not analyzed (D95)"
+ },
+ "tables": {
+  "all": {
+   "necessary": {
+    "n": 380,
+    "main_mean": {
+     "recovery_C4": {
+      "value": 0.006060606060606059,
+      "ci95": [
+       -0.03370914664151562,
+       0.04489066280047354
+      ],
+      "den_cost_mean": 0.2894736842105263,
+      "den_cost_ci95": [
+       0.2555846816770002,
+       0.324122701976588
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.03333333333333333,
+      "ci95": [
+       0.01941722780328649,
+       0.04854445822782213
+      ],
+      "den_cost_mean": 0.2894736842105263,
+      "den_cost_ci95": [
+       0.2555846816770002,
+       0.324122701976588
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.1202020202020202,
+      "ci95": [
+       0.06660182320366355,
+       0.17309890313692236
+      ],
+      "den_cost_mean": 0.2894736842105263,
+      "den_cost_ci95": [
+       0.2555846816770002,
+       0.324122701976588
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.14444444444444446,
+      "ci95": [
+       0.11217574215284809,
+       0.18085106382978722
+      ],
+      "den_cost_mean": 0.2894736842105263,
+      "den_cost_ci95": [
+       0.2555846816770002,
+       0.324122701976588
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.20202020202020202,
+      "ci95": [
+       0.15757358830596715,
+       0.24777930971803383
+      ],
+      "den_cost_mean": 0.2894736842105263,
+      "den_cost_ci95": [
+       0.2555846816770002,
+       0.324122701976588
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.2333333333333333,
+      "ci95": [
+       0.18908845463985652,
+       0.28182704295770844
+      ],
+      "den_cost_mean": 0.2894736842105263,
+      "den_cost_ci95": [
+       0.2555846816770002,
+       0.324122701976588
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    },
+    "meerkat-70b-nf4": {
+     "recovery_C4": {
+      "value": -0.017094017094017096,
+      "ci95": [
+       -0.06742525233288889,
+       0.028037383177570093
+      ],
+      "den_cost_mean": 0.3078947368421053,
+      "den_cost_ci95": [
+       0.25769989814107463,
+       0.35853781719635375
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.3078947368421053,
+      "den_cost_ci95": [
+       0.25769989814107463,
+       0.35853781719635375
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.26495726495726496,
+      "ci95": [
+       0.13113988049639966,
+       0.396230664626891
+      ],
+      "den_cost_mean": 0.3078947368421053,
+      "den_cost_ci95": [
+       0.25769989814107463,
+       0.35853781719635375
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.358974358974359,
+      "ci95": [
+       0.25396825396825395,
+       0.4811320754716981
+      ],
+      "den_cost_mean": 0.3078947368421053,
+      "den_cost_ci95": [
+       0.25769989814107463,
+       0.35853781719635375
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.26495726495726496,
+      "ci95": [
+       0.16980710916442052,
+       0.36448841510903424
+      ],
+      "den_cost_mean": 0.3078947368421053,
+      "den_cost_ci95": [
+       0.25769989814107463,
+       0.35853781719635375
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.27350427350427353,
+      "ci95": [
+       0.1818017127799738,
+       0.37254901960784315
+      ],
+      "den_cost_mean": 0.3078947368421053,
+      "den_cost_ci95": [
+       0.25769989814107463,
+       0.35853781719635375
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    },
+    "dsv4-0731": {
+     "recovery_C4": {
+      "value": 0.05714285714285714,
+      "ci95": [
+       -0.03200645161290317,
+       0.1386861313868613
+      ],
+      "den_cost_mean": 0.3684210526315789,
+      "den_cost_ci95": [
+       0.3181789266712931,
+       0.4197539116656763
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.014285714285714285,
+      "ci95": [
+       0.0,
+       0.03759398496240601
+      ],
+      "den_cost_mean": 0.3684210526315789,
+      "den_cost_ci95": [
+       0.3181789266712931,
+       0.4197539116656763
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.3,
+      "ci95": [
+       0.17482517482517482,
+       0.4186046511627907
+      ],
+      "den_cost_mean": 0.3684210526315789,
+      "den_cost_ci95": [
+       0.3181789266712931,
+       0.4197539116656763
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.05,
+      "ci95": [
+       0.015267175572519083,
+       0.09286129568106306
+      ],
+      "den_cost_mean": 0.3684210526315789,
+      "den_cost_ci95": [
+       0.3181789266712931,
+       0.4197539116656763
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.5071428571428571,
+      "ci95": [
+       0.4013564707320054,
+       0.6126760563380281
+      ],
+      "den_cost_mean": 0.3684210526315789,
+      "den_cost_ci95": [
+       0.3181789266712931,
+       0.4197539116656763
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.4785714285714286,
+      "ci95": [
+       0.37583892617449666,
+       0.5962787403290836
+      ],
+      "den_cost_mean": 0.3684210526315789,
+      "den_cost_ci95": [
+       0.3181789266712931,
+       0.4197539116656763
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    }
+   },
+   "partially": {
+    "n": 251,
+    "main_mean": {
+     "recovery_C4": {
+      "value": 0.020833333333333336,
+      "ci95": [
+       -0.0660390913034049,
+       0.10486956863361355
+      ],
+      "den_cost_mean": 0.14873837981407703,
+      "den_cost_ci95": [
+       0.11781970649895178,
+       0.18044453057708873
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.026785714285714284,
+      "ci95": [
+       0.006872263804547384,
+       0.05136986301369863
+      ],
+      "den_cost_mean": 0.14873837981407703,
+      "den_cost_ci95": [
+       0.11781970649895178,
+       0.18044453057708873
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.15773809523809523,
+      "ci95": [
+       0.037789326458973246,
+       0.2741016147925032
+      ],
+      "den_cost_mean": 0.14873837981407703,
+      "den_cost_ci95": [
+       0.11781970649895178,
+       0.18044453057708873
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.13095238095238096,
+      "ci95": [
+       0.08332838479809979,
+       0.18874610072230463
+      ],
+      "den_cost_mean": 0.14873837981407703,
+      "den_cost_ci95": [
+       0.11781970649895178,
+       0.18044453057708873
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.10416666666666667,
+      "ci95": [
+       0.011172665157525295,
+       0.19047619047619047
+      ],
+      "den_cost_mean": 0.14873837981407703,
+      "den_cost_ci95": [
+       0.11781970649895178,
+       0.18044453057708873
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.17857142857142855,
+      "ci95": [
+       0.1111111111111111,
+       0.253573250728863
+      ],
+      "den_cost_mean": 0.14873837981407703,
+      "den_cost_ci95": [
+       0.11781970649895178,
+       0.18044453057708873
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    },
+    "meerkat-70b-nf4": {
+     "recovery_C4": {
+      "value": -0.07142857142857142,
+      "ci95": [
+       -0.24242424242424243,
+       0.06382978723404255
+      ],
+      "den_cost_mean": 0.16733067729083664,
+      "den_cost_ci95": [
+       0.11914855211613797,
+       0.21839080459770116
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.16733067729083664,
+      "den_cost_ci95": [
+       0.11914855211613797,
+       0.21839080459770116
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.38095238095238093,
+      "ci95": [
+       0.14634146341463414,
+       0.6451612903225806
+      ],
+      "den_cost_mean": 0.16733067729083664,
+      "den_cost_ci95": [
+       0.11914855211613797,
+       0.21839080459770116
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.35714285714285715,
+      "ci95": [
+       0.1568627450980392,
+       0.6217060810810798
+      ],
+      "den_cost_mean": 0.16733067729083664,
+      "den_cost_ci95": [
+       0.11914855211613797,
+       0.21839080459770116
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.23809523809523808,
+      "ci95": [
+       0.07317073170731707,
+       0.4193709677419353
+      ],
+      "den_cost_mean": 0.16733067729083664,
+      "den_cost_ci95": [
+       0.11914855211613797,
+       0.21839080459770116
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.19047619047619047,
+      "ci95": [
+       0.07692307692307693,
+       0.32558139534883723
+      ],
+      "den_cost_mean": 0.16733067729083664,
+      "den_cost_ci95": [
+       0.11914855211613797,
+       0.21839080459770116
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    },
+    "dsv4-0731": {
+     "recovery_C4": {
+      "value": 0.18604651162790697,
+      "ci95": [
+       -0.030303030303030304,
+       0.3902439024390244
+      ],
+      "den_cost_mean": 0.17131474103585656,
+      "den_cost_ci95": [
+       0.12048192771084337,
+       0.2249021084337349
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.17131474103585656,
+      "den_cost_ci95": [
+       0.12048192771084337,
+       0.2249021084337349
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.3488372093023256,
+      "ci95": [
+       0.0,
+       0.6521960958296359
+      ],
+      "den_cost_mean": 0.17131474103585656,
+      "den_cost_ci95": [
+       0.12048192771084337,
+       0.2249021084337349
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.17131474103585656,
+      "den_cost_ci95": [
+       0.12048192771084337,
+       0.2249021084337349
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.32558139534883723,
+      "ci95": [
+       0.09302325581395349,
+       0.5227272727272727
+      ],
+      "den_cost_mean": 0.17131474103585656,
+      "den_cost_ci95": [
+       0.12048192771084337,
+       0.2249021084337349
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.4186046511627907,
+      "ci95": [
+       0.22857142857142856,
+       0.6666666666666666
+      ],
+      "den_cost_mean": 0.17131474103585656,
+      "den_cost_ci95": [
+       0.12048192771084337,
+       0.2249021084337349
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    }
+   },
+   "not_necessary": {
+    "n": 105,
+    "main_mean": {
+     "recovery_C4": {
+      "value": 0.15517241379310345,
+      "ci95": [
+       -0.17501096491228063,
+       0.5555555555555555
+      ],
+      "den_cost_mean": 0.061375661375661375,
+      "den_cost_ci95": [
+       0.030131386732844045,
+       0.09652076318742983
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.051724137931034475,
+      "ci95": [
+       0.0,
+       0.15257496740547538
+      ],
+      "den_cost_mean": 0.061375661375661375,
+      "den_cost_ci95": [
+       0.030131386732844045,
+       0.09652076318742983
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.12068965517241377,
+      "ci95": [
+       -0.38709677419354843,
+       0.6585731707317068
+      ],
+      "den_cost_mean": 0.061375661375661375,
+      "den_cost_ci95": [
+       0.030131386732844045,
+       0.09652076318742983
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.017241379310344827,
+      "ci95": [
+       -0.04545454545454545,
+       0.09211032388663959
+      ],
+      "den_cost_mean": 0.061375661375661375,
+      "den_cost_ci95": [
+       0.030131386732844045,
+       0.09652076318742983
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.2586206896551724,
+      "ci95": [
+       0.014925373134328361,
+       0.6
+      ],
+      "den_cost_mean": 0.061375661375661375,
+      "den_cost_ci95": [
+       0.030131386732844045,
+       0.09652076318742983
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.2586206896551724,
+      "ci95": [
+       0.10619133816036475,
+       0.5000000000000001
+      ],
+      "den_cost_mean": 0.061375661375661375,
+      "den_cost_ci95": [
+       0.030131386732844045,
+       0.09652076318742983
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    },
+    "meerkat-70b-nf4": {
+     "recovery_C4": {
+      "value": 0.2,
+      "ci95": [
+       -1.0,
+       1.3333333333333333
+      ],
+      "den_cost_mean": 0.047619047619047616,
+      "den_cost_ci95": [
+       0.0,
+       0.09836065573770492
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.047619047619047616,
+      "den_cost_ci95": [
+       0.0,
+       0.09836065573770492
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     },
+     "recovery_C4f": {
+      "value": 0.2,
+      "ci95": [
+       -2.5,
+       2.0
+      ],
+      "den_cost_mean": 0.047619047619047616,
+      "den_cost_ci95": [
+       0.0,
+       0.09836065573770492
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 1.0,
+      "ci95": [
+       0.21428571428571427,
+       5.0
+      ],
+      "den_cost_mean": 0.047619047619047616,
+      "den_cost_ci95": [
+       0.0,
+       0.09836065573770492
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     },
+     "recovery_P6": {
+      "value": -0.4,
+      "ci95": [
+       -2.5,
+       0.4
+      ],
+      "den_cost_mean": 0.047619047619047616,
+      "den_cost_ci95": [
+       0.0,
+       0.09836065573770492
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.2,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "den_cost_mean": 0.047619047619047616,
+      "den_cost_ci95": [
+       0.0,
+       0.09836065573770492
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     }
+    },
+    "dsv4-0731": {
+     "recovery_C4": {
+      "value": -1.5,
+      "ci95": [
+       -6.0,
+       0.3333333333333333
+      ],
+      "den_cost_mean": 0.01904761904761905,
+      "den_cost_ci95": [
+       -0.038838103643928854,
+       0.07865389719543481
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.01904761904761905,
+      "den_cost_ci95": [
+       -0.038838103643928854,
+       0.07865389719543481
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     },
+     "recovery_C4f": {
+      "value": 0.5,
+      "ci95": [
+       -2.0,
+       3.5
+      ],
+      "den_cost_mean": 0.01904761904761905,
+      "den_cost_ci95": [
+       -0.038838103643928854,
+       0.07865389719543481
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.01904761904761905,
+      "den_cost_ci95": [
+       -0.038838103643928854,
+       0.07865389719543481
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     },
+     "recovery_P6": {
+      "value": -2.0,
+      "ci95": [
+       -7.0,
+       0.3333333333333333
+      ],
+      "den_cost_mean": 0.01904761904761905,
+      "den_cost_ci95": [
+       -0.038838103643928854,
+       0.07865389719543481
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     },
+     "s1s2_over_cost_P6": {
+      "value": 1.0,
+      "ci95": [
+       -1.0,
+       4.0
+      ],
+      "den_cost_mean": 0.01904761904761905,
+      "den_cost_ci95": [
+       -0.038838103643928854,
+       0.07865389719543481
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     }
+    }
+   }
+  },
+  "no_artifact": {
+   "necessary": {
+    "n": 354,
+    "main_mean": {
+     "recovery_C4": {
+      "value": 0.014460511679644046,
+      "ci95": [
+       -0.02660217654171705,
+       0.05439836854672953
+      ],
+      "den_cost_mean": 0.28217200251098556,
+      "den_cost_ci95": [
+       0.2468789013732834,
+       0.3181256473824523
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.03337041156840934,
+      "ci95": [
+       0.01931754238526747,
+       0.04878048780487805
+      ],
+      "den_cost_mean": 0.28217200251098556,
+      "den_cost_ci95": [
+       0.2468789013732834,
+       0.3181256473824523
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.12124582869855395,
+      "ci95": [
+       0.06521617000488521,
+       0.17466229155962448
+      ],
+      "den_cost_mean": 0.28217200251098556,
+      "den_cost_ci95": [
+       0.2468789013732834,
+       0.3181256473824523
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.13904338153503895,
+      "ci95": [
+       0.10676061633820362,
+       0.1763367463026166
+      ],
+      "den_cost_mean": 0.28217200251098556,
+      "den_cost_ci95": [
+       0.2468789013732834,
+       0.3181256473824523
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.21023359288097887,
+      "ci95": [
+       0.1636123511904762,
+       0.259114820939781
+      ],
+      "den_cost_mean": 0.28217200251098556,
+      "den_cost_ci95": [
+       0.2468789013732834,
+       0.3181256473824523
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.22469410456062291,
+      "ci95": [
+       0.17868330601658103,
+       0.27444323275526317
+      ],
+      "den_cost_mean": 0.28217200251098556,
+      "den_cost_ci95": [
+       0.2468789013732834,
+       0.3181256473824523
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    },
+    "meerkat-70b-nf4": {
+     "recovery_C4": {
+      "value": -0.01904761904761905,
+      "ci95": [
+       -0.07563822997553445,
+       0.031258223684210405
+      ],
+      "den_cost_mean": 0.2966101694915254,
+      "den_cost_ci95": [
+       0.24424949290060854,
+       0.34840519709481044
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.2966101694915254,
+      "den_cost_ci95": [
+       0.24424949290060854,
+       0.34840519709481044
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.26666666666666666,
+      "ci95": [
+       0.12222222222222222,
+       0.40625
+      ],
+      "den_cost_mean": 0.2966101694915254,
+      "den_cost_ci95": [
+       0.24424949290060854,
+       0.34840519709481044
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.37142857142857144,
+      "ci95": [
+       0.26213014331946377,
+       0.5
+      ],
+      "den_cost_mean": 0.2966101694915254,
+      "den_cost_ci95": [
+       0.24424949290060854,
+       0.34840519709481044
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.2571428571428571,
+      "ci95": [
+       0.15532535829865937,
+       0.3627450980392157
+      ],
+      "den_cost_mean": 0.2966101694915254,
+      "den_cost_ci95": [
+       0.24424949290060854,
+       0.34840519709481044
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.2761904761904762,
+      "ci95": [
+       0.17857142857142858,
+       0.38181818181818183
+      ],
+      "den_cost_mean": 0.2966101694915254,
+      "den_cost_ci95": [
+       0.24424949290060854,
+       0.34840519709481044
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    },
+    "dsv4-0731": {
+     "recovery_C4": {
+      "value": 0.04,
+      "ci95": [
+       -0.054696459288990744,
+       0.1268686330253494
+      ],
+      "den_cost_mean": 0.3531073446327684,
+      "den_cost_ci95": [
+       0.30110422978672846,
+       0.4054813546423135
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.008,
+      "ci95": [
+       0.0,
+       0.026785714285714284
+      ],
+      "den_cost_mean": 0.3531073446327684,
+      "den_cost_ci95": [
+       0.30110422978672846,
+       0.4054813546423135
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.28,
+      "ci95": [
+       0.14615384615384616,
+       0.40580254985289305
+      ],
+      "den_cost_mean": 0.3531073446327684,
+      "den_cost_ci95": [
+       0.30110422978672846,
+       0.4054813546423135
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.04,
+      "ci95": [
+       0.008064516129032258,
+       0.08029197080291971
+      ],
+      "den_cost_mean": 0.3531073446327684,
+      "den_cost_ci95": [
+       0.30110422978672846,
+       0.4054813546423135
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.512,
+      "ci95": [
+       0.4,
+       0.6230882352941175
+      ],
+      "den_cost_mean": 0.3531073446327684,
+      "den_cost_ci95": [
+       0.30110422978672846,
+       0.4054813546423135
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.488,
+      "ci95": [
+       0.3795487991523429,
+       0.6120689655172413
+      ],
+      "den_cost_mean": 0.3531073446327684,
+      "den_cost_ci95": [
+       0.30110422978672846,
+       0.4054813546423135
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    }
+   },
+   "partially": {
+    "n": 237,
+    "main_mean": {
+     "recovery_C4": {
+      "value": 0.014792899408284023,
+      "ci95": [
+       -0.06451861042183621,
+       0.09187402187072452
+      ],
+      "den_cost_mean": 0.15846225972808253,
+      "den_cost_ci95": [
+       0.1267865375749193,
+       0.19138388688808855
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.023668639053254434,
+      "ci95": [
+       0.0054492210638549966,
+       0.0466472303206997
+      ],
+      "den_cost_mean": 0.15846225972808253,
+      "den_cost_ci95": [
+       0.1267865375749193,
+       0.19138388688808855
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.16272189349112423,
+      "ci95": [
+       0.048387096774193554,
+       0.27364953769559036
+      ],
+      "den_cost_mean": 0.15846225972808253,
+      "den_cost_ci95": [
+       0.1267865375749193,
+       0.19138388688808855
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.12130177514792899,
+      "ci95": [
+       0.07534143423007099,
+       0.17365269461077842
+      ],
+      "den_cost_mean": 0.15846225972808253,
+      "den_cost_ci95": [
+       0.1267865375749193,
+       0.19138388688808855
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.10650887573964496,
+      "ci95": [
+       0.01602308917197454,
+       0.19141937765205091
+      ],
+      "den_cost_mean": 0.15846225972808253,
+      "den_cost_ci95": [
+       0.1267865375749193,
+       0.19138388688808855
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.16863905325443787,
+      "ci95": [
+       0.1046129943502825,
+       0.2401256081712438
+      ],
+      "den_cost_mean": 0.15846225972808253,
+      "den_cost_ci95": [
+       0.1267865375749193,
+       0.19138388688808855
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    },
+    "meerkat-70b-nf4": {
+     "recovery_C4": {
+      "value": -0.047619047619047616,
+      "ci95": [
+       -0.2,
+       0.08
+      ],
+      "den_cost_mean": 0.17721518987341772,
+      "den_cost_ci95": [
+       0.1271186440677966,
+       0.22892193775100392
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.17721518987341772,
+      "den_cost_ci95": [
+       0.1271186440677966,
+       0.22892193775100392
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.38095238095238093,
+      "ci95": [
+       0.14705882352941177,
+       0.6388888888888888
+      ],
+      "den_cost_mean": 0.17721518987341772,
+      "den_cost_ci95": [
+       0.1271186440677966,
+       0.22892193775100392
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.30952380952380953,
+      "ci95": [
+       0.125,
+       0.5428571428571428
+      ],
+      "den_cost_mean": 0.17721518987341772,
+      "den_cost_ci95": [
+       0.1271186440677966,
+       0.22892193775100392
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.23809523809523808,
+      "ci95": [
+       0.07317073170731707,
+       0.4186046511627907
+      ],
+      "den_cost_mean": 0.17721518987341772,
+      "den_cost_ci95": [
+       0.1271186440677966,
+       0.22892193775100392
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.19047619047619047,
+      "ci95": [
+       0.07692307692307693,
+       0.32432432432432434
+      ],
+      "den_cost_mean": 0.17721518987341772,
+      "den_cost_ci95": [
+       0.1271186440677966,
+       0.22892193775100392
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    },
+    "dsv4-0731": {
+     "recovery_C4": {
+      "value": 0.175,
+      "ci95": [
+       -0.05263157894736842,
+       0.3793103448275862
+      ],
+      "den_cost_mean": 0.16877637130801687,
+      "den_cost_ci95": [
+       0.11666479820627805,
+       0.2237442922374429
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.16877637130801687,
+      "den_cost_ci95": [
+       0.11666479820627805,
+       0.2237442922374429
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.4,
+      "ci95": [
+       0.03333333333333333,
+       0.7222222222222222
+      ],
+      "den_cost_mean": 0.16877637130801687,
+      "den_cost_ci95": [
+       0.11666479820627805,
+       0.2237442922374429
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.16877637130801687,
+      "den_cost_ci95": [
+       0.11666479820627805,
+       0.2237442922374429
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.3,
+      "ci95": [
+       0.052597840755735786,
+       0.5
+      ],
+      "den_cost_mean": 0.16877637130801687,
+      "den_cost_ci95": [
+       0.11666479820627805,
+       0.2237442922374429
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.425,
+      "ci95": [
+       0.225,
+       0.6875
+      ],
+      "den_cost_mean": 0.16877637130801687,
+      "den_cost_ci95": [
+       0.11666479820627805,
+       0.2237442922374429
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    }
+   },
+   "not_necessary": {
+    "n": 101,
+    "main_mean": {
+     "recovery_C4": {
+      "value": 0.1607142857142857,
+      "ci95": [
+       -0.1842105263157895,
+       0.5869565217391305
+      ],
+      "den_cost_mean": 0.061606160616061605,
+      "den_cost_ci95": [
+       0.029476790716286522,
+       0.09796920821114369
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.05357142857142857,
+      "ci95": [
+       0.0,
+       0.16129032258064516
+      ],
+      "den_cost_mean": 0.061606160616061605,
+      "den_cost_ci95": [
+       0.029476790716286522,
+       0.09796920821114369
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_C4f": {
+      "value": 0.08928571428571429,
+      "ci95": [
+       -0.44002941176470567,
+       0.6428571428571428
+      ],
+      "den_cost_mean": 0.061606160616061605,
+      "den_cost_ci95": [
+       0.029476790716286522,
+       0.09796920821114369
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.0,
+      "ci95": [
+       -0.060606060606060615,
+       0.06
+      ],
+      "den_cost_mean": 0.061606160616061605,
+      "den_cost_ci95": [
+       0.029476790716286522,
+       0.09796920821114369
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "recovery_P6": {
+      "value": 0.23214285714285712,
+      "ci95": [
+       -0.01961764705882344,
+       0.5714285714285715
+      ],
+      "den_cost_mean": 0.061606160616061605,
+      "den_cost_ci95": [
+       0.029476790716286522,
+       0.09796920821114369
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.23214285714285712,
+      "ci95": [
+       0.08234891216760679,
+       0.46874999999999994
+      ],
+      "den_cost_mean": 0.061606160616061605,
+      "den_cost_ci95": [
+       0.029476790716286522,
+       0.09796920821114369
+      ],
+      "n_replicates_den_nonpositive": 0,
+      "unstable": false
+     }
+    },
+    "meerkat-70b-nf4": {
+     "recovery_C4": {
+      "value": 0.4,
+      "ci95": [
+       -0.5,
+       2.0
+      ],
+      "den_cost_mean": 0.04950495049504951,
+      "den_cost_ci95": [
+       0.0,
+       0.10256410256410256
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.04950495049504951,
+      "den_cost_ci95": [
+       0.0,
+       0.10256410256410256
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     },
+     "recovery_C4f": {
+      "value": 0.2,
+      "ci95": [
+       -2.5,
+       2.0
+      ],
+      "den_cost_mean": 0.04950495049504951,
+      "den_cost_ci95": [
+       0.0,
+       0.10256410256410256
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.6,
+      "ci95": [
+       0.0,
+       3.0
+      ],
+      "den_cost_mean": 0.04950495049504951,
+      "den_cost_ci95": [
+       0.0,
+       0.10256410256410256
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     },
+     "recovery_P6": {
+      "value": -0.4,
+      "ci95": [
+       -2.5,
+       0.4
+      ],
+      "den_cost_mean": 0.04950495049504951,
+      "den_cost_ci95": [
+       0.0,
+       0.10256410256410256
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     },
+     "s1s2_over_cost_P6": {
+      "value": 0.2,
+      "ci95": [
+       0.0,
+       1.0
+      ],
+      "den_cost_mean": 0.04950495049504951,
+      "den_cost_ci95": [
+       0.0,
+       0.10256410256410256
+      ],
+      "n_replicates_den_nonpositive": 327,
+      "unstable": true
+     }
+    },
+    "dsv4-0731": {
+     "recovery_C4": {
+      "value": -1.5,
+      "ci95": [
+       -6.0,
+       0.3333333333333333
+      ],
+      "den_cost_mean": 0.019801980198019802,
+      "den_cost_ci95": [
+       -0.04040745290745288,
+       0.08247422680412371
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     },
+     "s1s2_over_cost_C4": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.019801980198019802,
+      "den_cost_ci95": [
+       -0.04040745290745288,
+       0.08247422680412371
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     },
+     "recovery_C4f": {
+      "value": 0.5,
+      "ci95": [
+       -2.0,
+       3.5
+      ],
+      "den_cost_mean": 0.019801980198019802,
+      "den_cost_ci95": [
+       -0.04040745290745288,
+       0.08247422680412371
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     },
+     "s1s2_over_cost_C4f": {
+      "value": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "den_cost_mean": 0.019801980198019802,
+      "den_cost_ci95": [
+       -0.04040745290745288,
+       0.08247422680412371
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     },
+     "recovery_P6": {
+      "value": -2.0,
+      "ci95": [
+       -7.0,
+       0.3333333333333333
+      ],
+      "den_cost_mean": 0.019801980198019802,
+      "den_cost_ci95": [
+       -0.04040745290745288,
+       0.08247422680412371
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     },
+     "s1s2_over_cost_P6": {
+      "value": 1.0,
+      "ci95": [
+       -1.0,
+       4.0
+      ],
+      "den_cost_mean": 0.019801980198019802,
+      "den_cost_ci95": [
+       -0.04040745290745288,
+       0.08247422680412371
+      ],
+      "n_replicates_den_nonpositive": 3210,
+      "unstable": true
+     }
+    }
+   }
+  }
+ }
+}

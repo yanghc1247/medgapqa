@@ -1,0 +1,36 @@
+{
+  "_note": "confirmed: values confirmed by the user (logs/decisions.md, internal). provisional: temporary values before confirmation (DEV checks only). If provisional is not empty, EVAL runs are refused (src/medgapqa/agent.py load_config).",
+  "confirmed": {
+    "T": 4,
+    "protocol": "v2",
+    "prompt_variant": "p3",
+    "T_rule": "v2: conditions with tools get the sum of the tool limits + 1 (C2 3, C3 3, C4 5); C0 and C1 get T (4). v1: T for every condition",
+    "ask_max": 2,
+    "search_max": 2,
+    "search_top_k": 3,
+    "search_max_tokens": 300,
+    "action_format": "A (prefill {\"action\": \", JSON only)",
+    "action_order": [
+      "ANSWER",
+      "ASK",
+      "SEARCH",
+      "ABSTAIN"
+    ],
+    "max_new_tokens": 256,
+    "content_word_limit_instruction": 30,
+    "parse_retries": 1,
+    "simulator_model": "meerkat-70b-nf4 (resident server)",
+    "simulator_design": "D2: the LLM only classifies the question as WITHHELD/IN_CASE/NOT_AVAILABLE; the reply sentences are fixed texts",
+    "repeat_limit_policy": "v2: one retry with a fixed sentence; still over the limit after the retry -> unresolved ({ask,search}_limit_after_retry). v1: unresolved immediately",
+    "disallowed_action_policy": "invalid",
+    "budget_disclosure": true,
+    "search_truncation_tokenizer": "qwen2.5-7b",
+    "history_after_retry": "valid_output_only",
+    "forced_answer_prompt": "You have reached the action limit. Answer now with one option letter.",
+    "answer_normalization": false,
+    "simulator_version": "v7",
+    "last_turn_policy": "v2: on the last turn only ANSWER/ABSTAIN (those allowed in the condition), fixed sentence 'This is your last action. Choose ...'; a tool attempt is unresolved after one retry (last_turn_tool_after_retry)",
+    "forced_answer": "v2: disabled (code kept to reproduce v1)"
+  },
+  "provisional": {}
+}

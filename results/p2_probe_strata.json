@@ -1,0 +1,415 @@
+{
+ "meta": {
+  "analysis": "D97 necessity-stratified NP probe AUROC",
+  "status": "post hoc, exploratory, no multiplicity correction; added after reviewer comment",
+  "labels": "D35e full necessity labels (736 items), LLM labels by Claude Sonnet 5.5 (not human), fixed before results; strata necessary / partially / not_necessary",
+  "score": "logit(No) - logit(Yes) of the necessity probe; positive = S1 (fact removed), negative = S0; AUROC with ties counted half (p2_analysis.auc)",
+  "bootstrap": "shared resampling matrix of p2_analysis.Boot (B 10000, seed 20261016, 736 items); per resample, AUROC over the resampled items in the stratum; 95% two-sided percentile",
+  "main_mean": "mean of per-model AUROC over the main pool (per resample, same rows)",
+  "check": "stratum 'all' (736 items) reproduces p2_analysis np_probe AUROC and ci95",
+  "p2_analysis_py_sha256": "98e4f639d709c70178c86911e05fcb2d40a62197909e79dd014ce27d0eadfbfc",
+  "p2_strata_py_sha256": "ec432eceb94ce0f9e7399026e7dc90b9b91ca95ada7363dc36eaec09f6393422",
+  "script_sha256": "39cca10952fdaaddf8c53c83c4598e9f38af5485a042070f093c5ae64ccf1293",
+  "items_sha256": "2da8bef3ed4176ce86f6734bd65877d8e6da884034b9b40c97d149a0a77191bd",
+  "label_files_sha256": {
+   "evalk_necessity_full_part01_labels.csv": "a85b10dca0aafc875bce0f54415e541fcaf6897a871024464999ecfade71a9da",
+   "evalk_necessity_full_part02_labels.csv": "9602d8a93861f0d4e8ca3bed5223b2695249a757afbbe72550757ba152054dac",
+   "evalk_necessity_full_part03_labels.csv": "75872b92af4f6523deb0e7bf1057b79d227a63460f69269da9764d4c8946d7e2",
+   "evalk_necessity_full_part04_labels.csv": "31dbebad7a672ef0ff38b47246d5d057b8a0cbb3e166bc9020e713560bcdea76",
+   "evalk_necessity_full_part05_labels.csv": "40cb93759e31cf7ef40b3b7b9c61805c5f61cefabc8904313b97c167c2303527",
+   "evalk_necessity_full_part06_labels.csv": "15755fc44cd674419f1528ca45b2ad43027dd117c3624574da2fe558f2c7e27d",
+   "evalk_necessity_full_part07_labels.csv": "3c1702a9f51fb590b13fc8421c2efb7561e4f73b0eb9c87fe089f65c7a8185fa",
+   "evalk_necessity_full_part08_labels.csv": "56533189509d375f13a4c776dce91fe722592f24d4603df39a11ec7c75c346dc"
+  }
+ },
+ "n_items": 736,
+ "B": 10000,
+ "seed": 20261016,
+ "main_pool": [
+  "qwen3-8b",
+  "qwen3-14b",
+  "meerkat2-14b",
+  "medgemma-4b",
+  "qwen3-30b-a3b",
+  "meerkat2-30b-a3b",
+  "qwen3-32b",
+  "medgemma-27b",
+  "meerkat2-32b"
+ ],
+ "large": [
+  "meerkat-70b-nf4",
+  "dsv4-0731"
+ ],
+ "main_mean_missing": [],
+ "excluded": {
+  "medgemma-1.5-4b": "pilot format failure (D76)",
+  "qwen3-235b-a22b": "bf16 needed more GPUs than were available within the schedule; partial outputs not analyzed (D95)"
+ },
+ "strata_counts": {
+  "necessary": 380,
+  "partially": 251,
+  "not_necessary": 105
+ },
+ "strata": {
+  "all": {
+   "n": 736,
+   "models": {
+    "qwen3-8b": {
+     "AUROC": 0.6711698074196597,
+     "ci95": [
+      0.6566496245126417,
+      0.6865718964142249
+     ]
+    },
+    "qwen3-14b": {
+     "AUROC": 0.7123303476488658,
+     "ci95": [
+      0.6966822488997519,
+      0.7287686036079277
+     ]
+    },
+    "meerkat2-14b": {
+     "AUROC": 0.7401891466800568,
+     "ci95": [
+      0.7238463778576913,
+      0.7573953148998701
+     ]
+    },
+    "medgemma-4b": {
+     "AUROC": 0.6529621780482041,
+     "ci95": [
+      0.6388784715043124,
+      0.6681737773585185
+     ]
+    },
+    "qwen3-30b-a3b": {
+     "AUROC": 0.6702430883742911,
+     "ci95": [
+      0.6557652262523629,
+      0.6854919779728852
+     ]
+    },
+    "meerkat2-30b-a3b": {
+     "AUROC": 0.7250718114957467,
+     "ci95": [
+      0.708529991914284,
+      0.7424836070415879
+     ]
+    },
+    "qwen3-32b": {
+     "AUROC": 0.7315496145439508,
+     "ci95": [
+      0.7151775626919895,
+      0.7487646207466918
+     ]
+    },
+    "medgemma-27b": {
+     "AUROC": 0.6620927605151229,
+     "ci95": [
+      0.6463790114750708,
+      0.6782967522374174
+     ]
+    },
+    "meerkat2-32b": {
+     "AUROC": 0.7656397684310019,
+     "ci95": [
+      0.749496581108223,
+      0.7822210474140477
+     ]
+    },
+    "meerkat-70b-nf4": {
+     "AUROC": 0.6614632561436673,
+     "ci95": [
+      0.6486587264812737,
+      0.6751942740946952
+     ]
+    },
+    "dsv4-0731": {
+     "AUROC": 0.6418230889650284,
+     "ci95": [
+      0.6225591244904892,
+      0.6623900444160562
+     ]
+    }
+   },
+   "main_mean": {
+    "AUROC": 0.7034720581285445,
+    "ci95": [
+     0.6913276491283344,
+     0.7160098432618213
+    ],
+    "n_models": 9
+   }
+  },
+  "necessary": {
+   "n": 380,
+   "models": {
+    "qwen3-8b": {
+     "AUROC": 0.679106648199446,
+     "ci95": [
+      0.6572679698990777,
+      0.7019940323871293
+     ]
+    },
+    "qwen3-14b": {
+     "AUROC": 0.7229709141274239,
+     "ci95": [
+      0.6994284629159779,
+      0.7468389255518245
+     ]
+    },
+    "meerkat2-14b": {
+     "AUROC": 0.7650969529085873,
+     "ci95": [
+      0.7403356981359799,
+      0.7891595408186829
+     ]
+    },
+    "medgemma-4b": {
+     "AUROC": 0.6620637119113574,
+     "ci95": [
+      0.6415515590784726,
+      0.6842155013047927
+     ]
+    },
+    "qwen3-30b-a3b": {
+     "AUROC": 0.675474376731302,
+     "ci95": [
+      0.6544542449683942,
+      0.6969958721699206
+     ]
+    },
+    "meerkat2-30b-a3b": {
+     "AUROC": 0.7503047091412742,
+     "ci95": [
+      0.7259469862023253,
+      0.7750974360289536
+     ]
+    },
+    "qwen3-32b": {
+     "AUROC": 0.7603358725761773,
+     "ci95": [
+      0.7361976224919206,
+      0.7846023295559167
+     ]
+    },
+    "medgemma-27b": {
+     "AUROC": 0.7082894736842106,
+     "ci95": [
+      0.6840060072020695,
+      0.7329048935895508
+     ]
+    },
+    "meerkat2-32b": {
+     "AUROC": 0.7952319944598338,
+     "ci95": [
+      0.7712942906566231,
+      0.81903356605852
+     ]
+    },
+    "meerkat-70b-nf4": {
+     "AUROC": 0.6742416897506925,
+     "ci95": [
+      0.6547232235751793,
+      0.6953382697403531
+     ]
+    },
+    "dsv4-0731": {
+     "AUROC": 0.6427112188365651,
+     "ci95": [
+      0.6147477123105731,
+      0.6713199092310705
+     ]
+    }
+   },
+   "main_mean": {
+    "AUROC": 0.724319405971068,
+    "ci95": [
+     0.7057497045101863,
+     0.7425963832977918
+    ],
+    "n_models": 9
+   }
+  },
+  "partially": {
+   "n": 251,
+   "models": {
+    "qwen3-8b": {
+     "AUROC": 0.6830923318677481,
+     "ci95": [
+      0.6586920699128201,
+      0.7102461738489092
+     ]
+    },
+    "qwen3-14b": {
+     "AUROC": 0.7127505912604561,
+     "ci95": [
+      0.6874614907323277,
+      0.7409537053417338
+     ]
+    },
+    "meerkat2-14b": {
+     "AUROC": 0.7423374232155046,
+     "ci95": [
+      0.7152852409063564,
+      0.7715886654908619
+     ]
+    },
+    "medgemma-4b": {
+     "AUROC": 0.6611879176521007,
+     "ci95": [
+      0.6374239163574219,
+      0.6876683821449395
+     ]
+    },
+    "qwen3-30b-a3b": {
+     "AUROC": 0.6716877509880795,
+     "ci95": [
+      0.6471607074171777,
+      0.6989098871922433
+     ]
+    },
+    "meerkat2-30b-a3b": {
+     "AUROC": 0.7322264725956731,
+     "ci95": [
+      0.7054910986426111,
+      0.7606631840024014
+     ]
+    },
+    "qwen3-32b": {
+     "AUROC": 0.7256710210949032,
+     "ci95": [
+      0.6993474350432711,
+      0.7545108214709483
+     ]
+    },
+    "medgemma-27b": {
+     "AUROC": 0.6362121236170855,
+     "ci95": [
+      0.6111259739465577,
+      0.6626273864548591
+     ]
+    },
+    "meerkat2-32b": {
+     "AUROC": 0.7740273963905335,
+     "ci95": [
+      0.7483028982238064,
+      0.8023180611774215
+     ]
+    },
+    "meerkat-70b-nf4": {
+     "AUROC": 0.6562911699814289,
+     "ci95": [
+      0.6367963428260774,
+      0.678322420254475
+     ]
+    },
+    "dsv4-0731": {
+     "AUROC": 0.6288312883922478,
+     "ci95": [
+      0.594074773834119,
+      0.6648433668892739
+     ]
+    }
+   },
+   "main_mean": {
+    "AUROC": 0.704354780964676,
+    "ci95": [
+     0.6858314661270436,
+     0.7250197835369381
+    ],
+    "n_models": 9
+   }
+  },
+  "not_necessary": {
+   "n": 105,
+   "models": {
+    "qwen3-8b": {
+     "AUROC": 0.6526530612244898,
+     "ci95": [
+      0.6197231894403316,
+      0.6924501630486314
+     ]
+    },
+    "qwen3-14b": {
+     "AUROC": 0.6955102040816327,
+     "ci95": [
+      0.6577066173494979,
+      0.7389515410625518
+     ]
+    },
+    "meerkat2-14b": {
+     "AUROC": 0.7048979591836735,
+     "ci95": [
+      0.6632192922262523,
+      0.7504214489214489
+     ]
+    },
+    "medgemma-4b": {
+     "AUROC": 0.6093424036281179,
+     "ci95": [
+      0.5797063635201644,
+      0.6459191934152005
+     ]
+    },
+    "qwen3-30b-a3b": {
+     "AUROC": 0.6629931972789116,
+     "ci95": [
+      0.6254570489978588,
+      0.7068798547923163
+     ]
+    },
+    "meerkat2-30b-a3b": {
+     "AUROC": 0.674875283446712,
+     "ci95": [
+      0.6362124504323522,
+      0.7183940045344266
+     ]
+    },
+    "qwen3-32b": {
+     "AUROC": 0.699546485260771,
+     "ci95": [
+      0.659319376957132,
+      0.745671803279744
+     ]
+    },
+    "medgemma-27b": {
+     "AUROC": 0.5975510204081632,
+     "ci95": [
+      0.564235885290207,
+      0.6356072224341861
+     ]
+    },
+    "meerkat2-32b": {
+     "AUROC": 0.7334240362811791,
+     "ci95": [
+      0.6948063496960689,
+      0.7775984105125012
+     ]
+    },
+    "meerkat-70b-nf4": {
+     "AUROC": 0.6563718820861678,
+     "ci95": [
+      0.6257222295570207,
+      0.69362797453575
+     ]
+    },
+    "dsv4-0731": {
+     "AUROC": 0.6775056689342404,
+     "ci95": [
+      0.6258329754516164,
+      0.7330460196137117
+     ]
+    }
+   },
+   "main_mean": {
+    "AUROC": 0.6700881834215167,
+    "ci95": [
+     0.6422266988062443,
+     0.7022324705801052
+    ],
+    "n_models": 9
+   }
+  }
+ }
+}
