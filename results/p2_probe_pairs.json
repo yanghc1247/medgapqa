@@ -1,0 +1,68 @@
+{
+ "meta": {
+  "analysis": "D122 NP probe AUROC difference within fine-tune/base pairs",
+  "status": "post hoc, exploratory, no multiplicity correction",
+  "score": "logit(No) - logit(Yes) of the necessity probe; positive = S1 (fact removed), negative = S0; AUROC with ties counted half (p2_analysis.auc)",
+  "bootstrap": "shared resampling matrix of p2_analysis.Boot (B 10000, seed 20261016, 736 items); per resample, both AUROC on the same rows; 95% percentile",
+  "check": "point AUROC of each model reproduces p2_analysis np_probe AUROC",
+  "p2_analysis_py_sha256": "98e4f639d709c70178c86911e05fcb2d40a62197909e79dd014ce27d0eadfbfc",
+  "script_sha256": "b3ca18c9a61dc76965d344b70664a6a405daf1f77579a83856ff8cd6ea5d13bf",
+  "items_sha256": "2da8bef3ed4176ce86f6734bd65877d8e6da884034b9b40c97d149a0a77191bd"
+ },
+ "n_items": 736,
+ "B": 10000,
+ "seed": 20261016,
+ "pairs": {
+  "meerkat2-14b_vs_qwen3-14b": {
+   "pair": [
+    "meerkat2-14b",
+    "qwen3-14b"
+   ],
+   "auroc": {
+    "meerkat2-14b": 0.7401891466800568,
+    "qwen3-14b": 0.7123303476488658
+   },
+   "diff": {
+    "value": 0.02785879903119093,
+    "ci95": [
+     0.014879632672199843,
+     0.04102783203124999
+    ]
+   }
+  },
+  "meerkat2-30b-a3b_vs_qwen3-30b-a3b": {
+   "pair": [
+    "meerkat2-30b-a3b",
+    "qwen3-30b-a3b"
+   ],
+   "auroc": {
+    "meerkat2-30b-a3b": 0.7250718114957467,
+    "qwen3-30b-a3b": 0.6702430883742911
+   },
+   "diff": {
+    "value": 0.05482872312145559,
+    "ci95": [
+     0.04004049319175328,
+     0.06947972202120745
+    ]
+   }
+  },
+  "meerkat2-32b_vs_qwen3-32b": {
+   "pair": [
+    "meerkat2-32b",
+    "qwen3-32b"
+   ],
+   "auroc": {
+    "meerkat2-32b": 0.7656397684310019,
+    "qwen3-32b": 0.7315496145439508
+   },
+   "diff": {
+    "value": 0.034090153887051056,
+    "ci95": [
+     0.021983986405659264,
+     0.046635012996219194
+    ]
+   }
+  }
+ }
+}

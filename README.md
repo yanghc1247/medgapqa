@@ -22,7 +22,7 @@ Numbers are copied from the paper; intervals are 95% item-clustered paired boots
 ## Pre-specified and exploratory analyses
 
 Fixed before the runs: forced inquiry or the targeted ask pipeline counts as an improvement if, on the main mean, its gain over answering immediately (S1) is at least +0.050 with the lower bound of the 97.5% interval above zero, and its change in S2 accuracy is at least −0.020.
-Exploratory or post hoc, with no multiplicity correction: the necessity strata, the recovery ratio by stratum, the blind asker against the targeted ask pipeline (B3), the correlation between models, and the probe AUROC by necessity stratum.
+Exploratory or post hoc, with no multiplicity correction: the necessity strata, the recovery ratio by stratum, the blind asker against the targeted ask pipeline (B3), the correlation between models, the probe AUROC by necessity stratum, and the probe AUROC difference within fine-tune/base pairs.
 Details are in the supplementary material (`supplement.pdf`).
 
 ## Models
@@ -91,7 +91,7 @@ CUDA_VISIBLE_DEVICES=1 python scripts/p2/run_eval.py --model qwen3-14b --sim-por
 ## Reproducing the results
 
 1. `python tests/test_smoke.py` (CPU, no data needed) compiles every module and checks the registered prompt hashes and hash guards.
-2. With the run outputs under `runs/p2/eval/`: `scripts/p2/p2_analysis.py`, then `p2_strata.py`, `p2_strata_recovery.py`, `p2_b3.py`, `p2_modelcorr.py`, `p2_pair_acc.py` and `p2_probe_strata.py` (usage in each docstring). They write the files in `results/`.
+2. With the run outputs under `runs/p2/eval/`: `scripts/p2/p2_analysis.py`, then `p2_strata.py`, `p2_strata_recovery.py`, `p2_b3.py`, `p2_modelcorr.py`, `p2_pair_acc.py`, `p2_probe_strata.py` and `p2_probe_pairs.py` (usage in each docstring). They write the files in `results/`.
 
 Statistics: 95% item-clustered paired bootstrap, B = 10,000, seed 20261016.
 
