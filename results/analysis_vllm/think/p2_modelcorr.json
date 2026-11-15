@@ -1,0 +1,769 @@
+{
+ "meta": {
+  "analysis": "D90 between-model rank correlation",
+  "status": "post hoc, exploratory; model-level n = 11 (main pool 9); no multiplicity correction; added after seeing the main results; possibly confounded by model strength (stronger models may both receive more facts and gain more)",
+  "statistic": "Spearman rank correlation across models (average ranks for ties) of per-model item means",
+  "quantities": {
+   "recv_ge1_<P>": "share of items with >= 1 removed fact received, policy P, state S1 (S1K asks)",
+   "delta_<P>_S1": "policy S1 - C0 S1",
+   "s1_minus_s2_<P>": "policy S1 - policy S2"
+  },
+  "pairs": {
+   "P6_recv_ge1_vs_delta_P6_S1": "primary",
+   "P6_recv_ge1_vs_s1_minus_s2_P6": "(c) S1 - S2 instead of delta",
+   "C4f_recv_ge1_vs_s1_minus_s2_C4f": "(d) Forced inquiry receipt vs Forced inquiry S1 - S2",
+   "C4f_recv_ge1_vs_delta_C4f_S1": "(d) reference: Forced inquiry receipt vs Forced inquiry delta"
+  },
+  "groups": {
+   "all": "main pool + large (primary, n = 11)",
+   "main": "(a) main pool only, large excluded (n = 9)",
+   "all_excluding_reused": "(b) reused model excluded from all",
+   "main_excluding_reused": "(b) reused model excluded from main pool"
+  },
+  "bootstrap": "shared resampling matrix of p2_analysis.Boot (B 10000, seed 20261016, 736 items); per resample, per-model means and Spearman recomputed; replicates where either rank vector is constant are dropped and counted; 95% percentile",
+  "p2_analysis_py_sha256": "98e4f639d709c70178c86911e05fcb2d40a62197909e79dd014ce27d0eadfbfc",
+  "p2_strata_py_sha256": "ec432eceb94ce0f9e7399026e7dc90b9b91ca95ada7363dc36eaec09f6393422",
+  "script_sha256": "06c15bed23596991a23d96bd3ea4b71c2615701677cac89b28d349d84c1e1ecf",
+  "items_sha256": "2da8bef3ed4176ce86f6734bd65877d8e6da884034b9b40c97d149a0a77191bd"
+ },
+ "n_items": 736,
+ "B": 10000,
+ "seed": 20261016,
+ "main_pool": [
+  "qwen3-8b",
+  "qwen3-14b",
+  "meerkat2-14b",
+  "qwen3-30b-a3b",
+  "meerkat2-30b-a3b",
+  "qwen3-32b",
+  "meerkat2-32b"
+ ],
+ "large": [
+  "dsv4-0731"
+ ],
+ "reused_models": [],
+ "main_mean_missing": [
+  "medgemma-4b",
+  "medgemma-27b"
+ ],
+ "excluded": {
+  "medgemma-1.5-4b": "pilot format failure",
+  "qwen3-235b-a22b": "bf16 needed more GPUs than were available within the schedule; partial outputs not analyzed"
+ },
+ "groups": {
+  "all": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "meerkat2-32b",
+   "dsv4-0731"
+  ],
+  "main": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "meerkat2-32b"
+  ],
+  "all_excluding_reused": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "meerkat2-32b",
+   "dsv4-0731"
+  ],
+  "main_excluding_reused": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "meerkat2-32b"
+  ]
+ },
+ "per_model": {
+  "qwen3-8b": {
+   "delta_C4f_S1": {
+    "value": 0.01358695652173913,
+    "ci95": [
+     -0.016304347826086956,
+     0.04483695652173913
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.12771739130434784,
+    "ci95": [
+     0.09510869565217392,
+     0.16032608695652173
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.012228260869565218,
+    "ci95": [
+     0.005434782608695652,
+     0.020380434782608696
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.5760869565217391,
+    "ci95": [
+     0.5407608695652174,
+     0.6114130434782609
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.002717391304347826,
+    "ci95": [
+     -0.024456521739130436,
+     0.029891304347826088
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.10461956521739131,
+    "ci95": [
+     0.06929347826086957,
+     0.13994565217391305
+    ]
+   }
+  },
+  "qwen3-14b": {
+   "delta_C4f_S1": {
+    "value": 0.025815217391304348,
+    "ci95": [
+     -0.006793478260869565,
+     0.058423913043478264
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.12092391304347826,
+    "ci95": [
+     0.08831521739130435,
+     0.15353260869565216
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.22554347826086957,
+    "ci95": [
+     0.1956521739130435,
+     0.25679347826086957
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.6019021739130435,
+    "ci95": [
+     0.5665760869565217,
+     0.6372282608695652
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.04483695652173913,
+    "ci95": [
+     0.012228260869565218,
+     0.07608695652173914
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.15353260869565216,
+    "ci95": [
+     0.12092391304347826,
+     0.18614130434782608
+    ]
+   }
+  },
+  "meerkat2-14b": {
+   "delta_C4f_S1": {
+    "value": -0.02717391304347826,
+    "ci95": [
+     -0.057065217391304345,
+     0.002717391304347826
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.11820652173913043,
+    "ci95": [
+     0.08695652173913043,
+     0.14945652173913043
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.010869565217391304,
+    "ci95": [
+     0.004076086956521739,
+     0.019021739130434784
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.6385869565217391,
+    "ci95": [
+     0.6046195652173914,
+     0.6725543478260869
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": -0.016304347826086956,
+    "ci95": [
+     -0.04619565217391304,
+     0.012228260869565218
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.11956521739130435,
+    "ci95": [
+     0.09103260869565218,
+     0.14945652173913043
+    ]
+   }
+  },
+  "qwen3-30b-a3b": {
+   "delta_C4f_S1": {
+    "value": 0.006793478260869565,
+    "ci95": [
+     -0.02309782608695652,
+     0.036684782608695655
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.14673913043478262,
+    "ci95": [
+     0.11413043478260869,
+     0.17798913043478262
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.050271739130434784,
+    "ci95": [
+     0.035326086956521736,
+     0.06657608695652174
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.6209239130434783,
+    "ci95": [
+     0.5855978260869565,
+     0.65625
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.035326086956521736,
+    "ci95": [
+     0.008152173913043478,
+     0.0625
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.15353260869565216,
+    "ci95": [
+     0.11956521739130435,
+     0.18617527173912993
+    ]
+   }
+  },
+  "meerkat2-30b-a3b": {
+   "delta_C4f_S1": {
+    "value": -0.03940217391304348,
+    "ci95": [
+     -0.06793478260869565,
+     -0.012228260869565218
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.12228260869565218,
+    "ci95": [
+     0.09103260869565218,
+     0.15353260869565216
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.012228260869565218,
+    "ci95": [
+     0.005434782608695652,
+     0.020380434782608696
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.6385869565217391,
+    "ci95": [
+     0.6046195652173914,
+     0.6739130434782609
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": -0.033967391304347824,
+    "ci95": [
+     -0.0625,
+     -0.005434782608695652
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.11820652173913043,
+    "ci95": [
+     0.08967391304347826,
+     0.14673913043478262
+    ]
+   }
+  },
+  "qwen3-32b": {
+   "delta_C4f_S1": {
+    "value": 0.03940217391304348,
+    "ci95": [
+     0.009510869565217392,
+     0.06929347826086957
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.14673913043478262,
+    "ci95": [
+     0.11141304347826086,
+     0.18206521739130435
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.2391304347826087,
+    "ci95": [
+     0.20923913043478262,
+     0.2703804347826087
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.6508152173913043,
+    "ci95": [
+     0.6154891304347826,
+     0.6847826086956522
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.035326086956521736,
+    "ci95": [
+     0.006793478260869565,
+     0.06385869565217392
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.16304347826086957,
+    "ci95": [
+     0.13179347826086957,
+     0.1956521739130435
+    ]
+   }
+  },
+  "meerkat2-32b": {
+   "delta_C4f_S1": {
+    "value": -0.004076086956521739,
+    "ci95": [
+     -0.03125,
+     0.02309782608695652
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.11684782608695653,
+    "ci95": [
+     0.08695652173913043,
+     0.14673913043478262
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.03940217391304348,
+    "ci95": [
+     0.025815217391304348,
+     0.05434782608695652
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.6766304347826086,
+    "ci95": [
+     0.6426630434782609,
+     0.7105978260869565
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.005434782608695652,
+    "ci95": [
+     -0.02309782608695652,
+     0.033967391304347824
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.13451086956521738,
+    "ci95": [
+     0.10461956521739131,
+     0.1644021739130435
+    ]
+   }
+  },
+  "dsv4-0731": {
+   "delta_C4f_S1": {
+    "value": 0.050271739130434784,
+    "ci95": [
+     0.024456521739130436,
+     0.07744565217391304
+    ]
+   },
+   "delta_P6_S1": {
+    "value": 0.11820652173913043,
+    "ci95": [
+     0.08831521739130435,
+     0.14945652173913043
+    ]
+   },
+   "recv_ge1_C4f": {
+    "value": 0.03940217391304348,
+    "ci95": [
+     0.025815217391304348,
+     0.05434782608695652
+    ]
+   },
+   "recv_ge1_P6": {
+    "value": 0.7404891304347826,
+    "ci95": [
+     0.7092391304347826,
+     0.7717391304347826
+    ]
+   },
+   "s1_minus_s2_C4f": {
+    "value": 0.035326086956521736,
+    "ci95": [
+     0.012228260869565218,
+     0.058423913043478264
+    ]
+   },
+   "s1_minus_s2_P6": {
+    "value": 0.11413043478260869,
+    "ci95": [
+     0.08695652173913043,
+     0.14266304347826086
+    ]
+   }
+  }
+ },
+ "correlations": {
+  "all": {
+   "P6_recv_ge1_vs_delta_P6_S1": {
+    "rho": -0.47879667219594013,
+    "ci95": [
+     -0.7142857142857143,
+     0.5476190476190477
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "P6_recv_ge1_vs_s1_minus_s2_P6": {
+    "rho": 0.04819277108433735,
+    "ci95": [
+     -0.5238095238095238,
+     0.44312171690790586
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_s1_minus_s2_C4f": {
+    "rho": 0.864263397068391,
+    "ci95": [
+     0.45228375570513185,
+     0.9523809523809523
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_delta_C4f_S1": {
+    "rho": 0.6386005678432408,
+    "ci95": [
+     0.23809523809523808,
+     0.8809523809523809
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   }
+  },
+  "main": {
+   "P6_recv_ge1_vs_delta_P6_S1": {
+    "rho": -0.3090909090909091,
+    "ci95": [
+     -0.6847124716486248,
+     0.6785714285714286
+    ],
+    "n_models": 7,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "P6_recv_ge1_vs_s1_minus_s2_P6": {
+    "rho": 0.32727272727272727,
+    "ci95": [
+     -0.39285714285714285,
+     0.7142857142857143
+    ],
+    "n_models": 7,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_s1_minus_s2_C4f": {
+    "rho": 0.8727272727272727,
+    "ci95": [
+     0.4642857142857143,
+     0.9642857142857143
+    ],
+    "n_models": 7,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_delta_C4f_S1": {
+    "rho": 0.7928249671720918,
+    "ci95": [
+     0.26172645979309395,
+     0.9642857142857143
+    ],
+    "n_models": 7,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   }
+  },
+  "all_excluding_reused": {
+   "P6_recv_ge1_vs_delta_P6_S1": {
+    "rho": -0.47879667219594013,
+    "ci95": [
+     -0.7142857142857143,
+     0.5476190476190477
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "P6_recv_ge1_vs_s1_minus_s2_P6": {
+    "rho": 0.04819277108433735,
+    "ci95": [
+     -0.5238095238095238,
+     0.44312171690790586
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_s1_minus_s2_C4f": {
+    "rho": 0.864263397068391,
+    "ci95": [
+     0.45228375570513185,
+     0.9523809523809523
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_delta_C4f_S1": {
+    "rho": 0.6386005678432408,
+    "ci95": [
+     0.23809523809523808,
+     0.8809523809523809
+    ],
+    "n_models": 8,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b",
+     "dsv4-0731"
+    ],
+    "n_replicates_undefined": 0
+   }
+  },
+  "main_excluding_reused": {
+   "P6_recv_ge1_vs_delta_P6_S1": {
+    "rho": -0.3090909090909091,
+    "ci95": [
+     -0.6847124716486248,
+     0.6785714285714286
+    ],
+    "n_models": 7,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "P6_recv_ge1_vs_s1_minus_s2_P6": {
+    "rho": 0.32727272727272727,
+    "ci95": [
+     -0.39285714285714285,
+     0.7142857142857143
+    ],
+    "n_models": 7,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_s1_minus_s2_C4f": {
+    "rho": 0.8727272727272727,
+    "ci95": [
+     0.4642857142857143,
+     0.9642857142857143
+    ],
+    "n_models": 7,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   },
+   "C4f_recv_ge1_vs_delta_C4f_S1": {
+    "rho": 0.7928249671720918,
+    "ci95": [
+     0.26172645979309395,
+     0.9642857142857143
+    ],
+    "n_models": 7,
+    "models": [
+     "qwen3-8b",
+     "qwen3-14b",
+     "meerkat2-14b",
+     "qwen3-30b-a3b",
+     "meerkat2-30b-a3b",
+     "qwen3-32b",
+     "meerkat2-32b"
+    ],
+    "n_replicates_undefined": 0
+   }
+  }
+ },
+ "_vllm_meta": {
+  "mode": "think",
+  "engine_by_model": {
+   "dsv4-0731": "vllm (TP4; batch invariant off)",
+   "meerkat2-14b": "vllm",
+   "meerkat2-30b-a3b": "vllm",
+   "meerkat2-32b": "vllm",
+   "qwen3-14b": "vllm",
+   "qwen3-30b-a3b": "vllm",
+   "qwen3-32b": "vllm",
+   "qwen3-8b": "vllm"
+  },
+  "provisional": false,
+  "items": "$PROJECT_ROOT_phase2/runs/v5/evalk/evalk.jsonl",
+  "note": "D130 vLLM analysis; preregistered improvement criterion applies to the Instant main mean only; Think criterion fields are descriptive, not a judgment"
+ }
+}

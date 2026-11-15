@@ -1,0 +1,70 @@
+{
+ "meta": {
+  "analysis": "D131-r3: share of the both-facts gain reached by the targeted ask pipeline, as for the Instant 'about 20%' (PtTargetedShareOfBothFactsPct =",
+  "B": 10000,
+  "seed": 20261016
+ },
+ "think7_think": {
+  "models": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "meerkat2-32b"
+  ],
+  "delta_P6_S1": 0.12849378881987575,
+  "both_facts_gain": 0.2694099378881987,
+  "share": 0.47694524495677226,
+  "share_ci95": [
+   0.4253652466891459,
+   0.5269065845299028
+  ]
+ },
+ "think7_instant": {
+  "models": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "meerkat2-32b"
+  ],
+  "delta_P6_S1": 0.04716614906832297,
+  "both_facts_gain": 0.21486801242236025,
+  "share": 0.21951219512195116,
+  "share_ci95": [
+   0.1772267939356202,
+   0.262814832275399
+  ]
+ },
+ "main9_instant": {
+  "models": [
+   "qwen3-8b",
+   "qwen3-14b",
+   "meerkat2-14b",
+   "medgemma-4b",
+   "qwen3-30b-a3b",
+   "meerkat2-30b-a3b",
+   "qwen3-32b",
+   "medgemma-27b",
+   "meerkat2-32b"
+  ],
+  "delta_P6_S1": 0.041364734299516905,
+  "both_facts_gain": 0.20471014492753625,
+  "share": 0.2020648967551622,
+  "share_ci95": [
+   0.16208370177343806,
+   0.24232081911262798
+  ]
+ },
+ "think7_diff": {
+  "share": 0.25743304983482107,
+  "share_ci95": [
+   0.1986160908087605,
+   0.3143846707677296
+  ]
+ }
+}

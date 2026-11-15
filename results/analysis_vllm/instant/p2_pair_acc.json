@@ -1,0 +1,112 @@
+{
+ "n_items": 736,
+ "B": 10000,
+ "seed": 20261016,
+ "note": "D95 descriptive supplement; same resampling matrix as p2_analysis",
+ "excluded": {
+  "medgemma-1.5-4b": "pilot format failure",
+  "qwen3-235b-a22b": "bf16 needed more GPUs than were available within the schedule; partial outputs not analyzed"
+ },
+ "pairs": {
+  "meerkat2-14b_vs_qwen3-14b": {
+   "pair": [
+    "meerkat2-14b",
+    "qwen3-14b"
+   ],
+   "C0_S0": {
+    "value": 0.09918478260869565,
+    "ci95": [
+     0.06925951086956553,
+     0.13043478260869565
+    ]
+   },
+   "C0_S1": {
+    "value": 0.09103260869565218,
+    "ci95": [
+     0.057065217391304345,
+     0.125
+    ]
+   },
+   "C0_cost_S0_minus_S1": {
+    "value": 0.008152173913043478,
+    "ci95": [
+     -0.028532608695652172,
+     0.04483695652173913
+    ]
+   }
+  },
+  "meerkat2-30b-a3b_vs_qwen3-30b-a3b": {
+   "pair": [
+    "meerkat2-30b-a3b",
+    "qwen3-30b-a3b"
+   ],
+   "C0_S0": {
+    "value": 0.0625,
+    "ci95": [
+     0.033967391304347824,
+     0.09103260869565218
+    ]
+   },
+   "C0_S1": {
+    "value": 0.06114130434782609,
+    "ci95": [
+     0.029891304347826088,
+     0.09239130434782608
+    ]
+   },
+   "C0_cost_S0_minus_S1": {
+    "value": 0.001358695652173913,
+    "ci95": [
+     -0.03260869565217391,
+     0.035326086956521736
+    ]
+   }
+  },
+  "meerkat2-32b_vs_qwen3-32b": {
+   "pair": [
+    "meerkat2-32b",
+    "qwen3-32b"
+   ],
+   "C0_S0": {
+    "value": 0.042119565217391304,
+    "ci95": [
+     0.01358695652173913,
+     0.06929347826086957
+    ]
+   },
+   "C0_S1": {
+    "value": 0.03940217391304348,
+    "ci95": [
+     0.008152173913043478,
+     0.07065217391304347
+    ]
+   },
+   "C0_cost_S0_minus_S1": {
+    "value": 0.002717391304347826,
+    "ci95": [
+     -0.03260869565217391,
+     0.036684782608695655
+    ]
+   }
+  }
+ },
+ "_vllm_meta": {
+  "mode": "instant",
+  "engine_by_model": {
+   "dsv4-0731": "vllm (TP4; batch invariant off)",
+   "medgemma-27b": "vllm",
+   "medgemma-4b": "vllm",
+   "meerkat2-14b": "vllm",
+   "meerkat2-30b-a3b": "vllm",
+   "meerkat2-32b": "vllm",
+   "qwen3-14b": "vllm",
+   "qwen3-30b-a3b": "vllm",
+   "qwen3-32b": "vllm",
+   "qwen3-8b": "vllm",
+   "meerkat-70b-nf4": "transformers NF4 (vLLM 0.32 has no bitsandbytes; D130-d); cap-hit episodes rerun without cap (D130-o 2)"
+  },
+  "provisional": false,
+  "items": "$PROJECT_ROOT_phase2/runs/v5/evalk/evalk.jsonl",
+  "note": "D130 vLLM analysis; preregistered improvement criterion applies to the Instant main mean only"
+ }
+}

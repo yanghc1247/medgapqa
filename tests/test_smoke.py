@@ -1,5 +1,5 @@
 """Smoke test of the release (CPU only; no model weights, items or trajectories needed).
-1. every .py file compiles; 2. registered prompt hashes; 3. registered-hash guards (scripts/p2/run_pilot.py and the frozen manifests) match the files in this release.
+1. every .py file compiles; 2. pre-specified prompt hashes; 3. hash guards of the pre-specified files (scripts/p2/run_pilot.py and the frozen manifests) match the files in this release.
 python tests/test_smoke.py   (or: python -m pytest tests/test_smoke.py)
 """
 import hashlib, json, re, sys
